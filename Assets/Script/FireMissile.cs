@@ -8,25 +8,34 @@ public class FireMissile : MonoBehaviour
     public float missileSpeed;
     public AudioClip fireSound;
 
+    //長押し連射
+    private int timeCount;
+
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown ("Fire1")) {
+        timeCount += 1;
+        
+        if(Input.GetButton ("Fire1")) {
 
-            //プレハブからミサイルオブジェクトを作成し、
-            //それをmissileという箱に入れる
-            GameObject missile = Instantiate (missilePrefab,
-            transform.position, Quaternion.identity)
-            as GameObject;
+            //数字を変えると連射の間隔を変更できる
+            if(timeCount % 5 == 0){
 
-            Rigidbody missileRb = missile.GetComponent<Rigidbody>();
+                //プレハブからミサイルオブジェクトを作成し、
+                //それをmissileという箱に入れる
+                GameObject missile = Instantiate (missilePrefab,
+                transform.position, Quaternion.identity)
+                as GameObject;
 
-            missileRb.AddForce (transform.forward * missileSpeed);
+                Rigidbody missileRb = missile.GetComponent<Rigidbody>();
 
-            AudioSource.PlayClipAtPoint (fireSound, transform.position);
+                missileRb.AddForce (transform.forward * missileSpeed);
 
-            //発射したミサイルを2秒後に破壊する
-            Destroy(missile, 2.0f);
+                AudioSource.PlayClipAtPoint (fireSound, transform.position);
+
+                //発射したミサイルを2秒後に破壊する
+                Destroy(missile, 2.0f);
+            }
         }
     }
 }

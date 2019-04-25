@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class StageNumber : MonoBehaviour
 {
-    [SerializeField]
-    private Text stageNumberText;
+    [SerializeField, HeaderAttribute("ステージ名")]
+    public Text stageNumberText;
 
     // Update is called once per frame
     void Update()
