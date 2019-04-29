@@ -12,7 +12,12 @@ public class PlayerMovement : MonoBehaviour
     {
         float moveH = -Input.GetAxis ("Horizontal") * moveSpeed;
         float moveV = -Input.GetAxis ("Vertical") * moveSpeed;
+
+        float moveX = -Input.GetAxis("Mouse X") * moveSpeed;
+        float moveY = -Input.GetAxis("Mouse Y") * moveSpeed;
+
         transform.Translate (moveH, 0.0f, moveV);
+        transform.Translate (moveX, 0.0f, moveY);
 
         Clamp();
     }
@@ -25,8 +30,8 @@ public class PlayerMovement : MonoBehaviour
         //プレーヤーの位置情報をposに入れる
         pos = transform.position;
 
-        pos.x = Mathf.Clamp (pos.x, -10, 10);
-        pos.z = Mathf.Clamp (pos.z, -10, 10);
+        pos.x = Mathf.Clamp (pos.x, -25, 25);
+        pos.z = Mathf.Clamp (pos.z, -16, 16);
 
         transform.position = pos;
     }

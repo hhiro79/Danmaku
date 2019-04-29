@@ -18,9 +18,12 @@ public class PlayerHealth : MonoBehaviour
     //プレーヤーが破壊された回数
     public int destroyCount = 0;
 
-    void Start(){
+    //無敵
+    public bool isMuteki = false;
 
-        playerCurrentHP = playerHP;
+    void Start(){
+        UpdatePlayerIcons();
+        playerCurrentHP = 5;
         playerHPSlider = GameObject.Find ("PlayerHPSlider").
             GetComponent<Slider>();
         playerHPSlider.maxValue = playerHP;
@@ -28,7 +31,8 @@ public class PlayerHealth : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider col){
-        if(col.gameObject.CompareTag ("EnemyMissile")){
+
+        if(col.gameObject.CompareTag ("EnemyMissile") && isMuteki == false){
 
             playerCurrentHP -= 1;
             AudioSource.PlayClipAtPoint (damageSound,
@@ -86,5 +90,50 @@ public class PlayerHealth : MonoBehaviour
         this.gameObject.SetActive(true);
         playerCurrentHP = playerHP;
         playerHPSlider.value = playerCurrentHP;
+
+        //無敵
+        isMuteki = true;
+        Invoke("MutekiOff", 2.0f);
+    }
+
+    //HP回復アイテム
+    public void AddHP(int amount){
+
+        //amount分だけHP回復
+        playerCurrentHP += amount;
+
+        //最大HP超にはしない
+        if(playerCurrentHP > playerHP){
+            playerCurrentHP = playerHP;
+        }
+
+        //HPスライダ
+        playerHPSlider.value = playerCurrentHP;
+    }
+
+    //1UPアイテム
+    public void Player1Up(int amount){
+
+        //amount分、残機を回復
+        //破壊された回数destroyCountをamount分減少させる
+        destroyCount -= amount;
+
+        //最大残機数を超えないように（破壊された回数が0未満にならないように）
+        if(destroyCount < 0){
+            destroyCount = 0;
+        }
+
+        //残機数を表示するUI（アイコン）
+        for (int i = 0; i < playerIcons.Length; i++){
+            if(destroyCount <= i){
+                playerIcons[i].SetActive (true);
+            } else {
+                playerIcons[i].SetActive(false);
+            }
+        }
+    }
+
+    void MutekiOff(){
+        isMuteki = false;
     }
 }
