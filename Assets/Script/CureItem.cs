@@ -6,6 +6,7 @@ public class CureItem : MonoBehaviour
 {
     public GameObject effectPrefab;
     public AudioClip getSound;
+    
     private PlayerHealth playerHealth;
     public int reward = 3;
 
@@ -24,7 +25,7 @@ public class CureItem : MonoBehaviour
             GameObject effect = Instantiate (effectPrefab, transform.position, Quaternion.identity);
 
             //効果音出す
-            AudioSource.PlayClipAtPoint(getSound, Camera.main.transform.position);
+            AudioSource.PlayClipAtPoint(getSound, Camera.main.transform.position, 0.4f);
 
             //アイテムを画面から消す
             Destroy(this.gameObject);

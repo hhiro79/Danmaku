@@ -23,7 +23,7 @@ public class PowerUpItem : MonoBehaviour
             GameObject effect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
 
             //効果音
-            AudioSource.PlayClipAtPoint(getSound, Camera.main.transform.position);
+            AudioSource.PlayClipAtPoint(getSound, Camera.main.transform.position, 0.4f);
 
             //アイテムを非アクティブに
             //ここでアイテムを破壊するとメモリ上から消えてNomalメソッドが実行されなくなる

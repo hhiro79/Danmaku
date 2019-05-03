@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -12,6 +13,13 @@ public class EnemyHealth : MonoBehaviour
 
     public int scoreValue;
     private ScoreManager sm;
+
+    //アイテム出現
+    public GameObject[] itemPrefab;
+
+    //ステージクリア
+    public int nextSceneNumber;
+    public AudioClip clearSound;
 
     void Start(){
         //GameObject.Find("oo")の使い方。
@@ -55,16 +63,45 @@ public class EnemyHealth : MonoBehaviour
             if(enemyHP == 0){
 
                 //敵オブジェクト破壊
-                Destroy(transform.root.gameObject);
+                //Destroy(transform.root.gameObject);
+
+                //ステージクリア
+                //親オブジェクトを非表示に
+                transform.root.gameObject.SetActive(false);
 
                 //破壊効果音
                 AudioSource.PlayClipAtPoint(destroySound,
                     transform.position);
 
-            //敵を破壊した瞬間にスコアを加算するメソッドを呼び出す
-            //引数にはscoreValueを入れる
-            sm.AddScore(scoreValue);
+                //敵を破壊した瞬間にスコアを加算するメソッドを呼び出す
+                //引数にはscoreValueを入れる
+                sm.AddScore(scoreValue);
+
+                if (itemPrefab.Length > 0) {
+                    //ランダムメソッドの活用
+                    GameObject dropItem = itemPrefab [Random.Range (0, itemPrefab.Length)];
+                    
+                    //敵を破壊した瞬間にアイテムプレハブを実体化
+                    Instantiate (dropItem, transform.position, Quaternion.identity);
+                }
+
+                //ステージクリア
+                //親オブジェクトにBossというTagがついていたならば
+                if(this.gameObject.transform.root.CompareTag("Boss")){
+
+                    //クリア音を鳴らす
+                    AudioSource.PlayClipAtPoint(clearSound, Camera.main.transform.position, 0.4f);
+
+                    //1秒後にシーン遷移のメソッドを実行
+                    Invoke("GoNextStage", 1);
+                }
             }
         }
+    }
+
+    //ステージクリア
+    //シーン遷移メソッド
+    void GoNextStage(){
+        SceneManager.LoadScene(nextSceneNumber);
     }
 }

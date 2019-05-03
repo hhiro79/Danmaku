@@ -16,7 +16,7 @@ public class ShieldItem : MonoBehaviour
 
             //エフェクトとSEを発生
             GameObject effect = Instantiate (effectPrefab, transform.position, Quaternion.identity);
-            AudioSource.PlayClipAtPoint(getSound, Camera.main.transform.position);
+            AudioSource.PlayClipAtPoint(getSound, Camera.main.transform.position, 0.4f);
 
             //プレーヤーの位置情報取得
             player = GameObject.FindGameObjectWithTag("Player");

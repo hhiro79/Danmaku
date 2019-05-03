@@ -25,7 +25,7 @@ public class Player1UpItem : MonoBehaviour
             GameObject effect = Instantiate (effectPrefab, transform.position, Quaternion.identity);
 
             //効果音を出す
-            AudioSource.PlayClipAtPoint(getSound, Camera.main.transform.position);
+            AudioSource.PlayClipAtPoint(getSound, Camera.main.transform.position, 0.4f);
 
             //アイテムを破壊
             Destroy(this.gameObject);

@@ -23,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Start(){
         UpdatePlayerIcons();
-        playerCurrentHP = 5;
+        playerCurrentHP = playerHP;
         playerHPSlider = GameObject.Find ("PlayerHPSlider").
             GetComponent<Slider>();
         playerHPSlider.maxValue = playerHP;

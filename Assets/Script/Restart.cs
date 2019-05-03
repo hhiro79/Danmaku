@@ -6,6 +6,6 @@ using UnityEngine.SceneManagement;
 public class Restart : MonoBehaviour
 {
     public void OnRestartButtonClicked(){
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Stage1");
     }
 }
