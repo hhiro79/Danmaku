@@ -1034,6 +1034,11 @@ PrefabInstance:
       propertyPath: playerIcons.Array.data[4]
       value: 
       objectReference: {fileID: 5895207127763855920}
+    - target: {fileID: 8685305572122349702, guid: 5901f8866a0b82e4e9e54e9391083812,
+        type: 3}
+      propertyPath: playerHP
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5901f8866a0b82e4e9e54e9391083812, type: 3}
 --- !u!1001 &8702202421038685425

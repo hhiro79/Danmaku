@@ -5,7 +5,13 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    private int score = 0;
+    //private int score = 0;
+
+    //静的変数
+    //public staticをつけることで、ScoreManagerスクリプトがついている他オブジェクトと
+    //scoreのデータを共有することができるようになる
+    public static int score = 0;
+
     private Text scoreLabel;
 
     // Start is called before the first frame update
@@ -27,5 +33,12 @@ public class ScoreManager : MonoBehaviour
         score += amount;
 
         scoreLabel.text = "Score " + score;
+    }
+
+    /// <summary>
+    /// スコアデータをリセットする
+    /// </summary>
+    public void ScoreReset(){
+        score = 0;
     }
 }

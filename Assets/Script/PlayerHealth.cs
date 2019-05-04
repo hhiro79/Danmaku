@@ -16,13 +16,20 @@ public class PlayerHealth : MonoBehaviour
     public GameObject[] playerIcons;
 
     //プレーヤーが破壊された回数
-    public int destroyCount = 0;
+    public static int destroyCount = 0;
 
     //無敵
     public bool isMuteki = false;
 
+    private ScoreManager scoreManager;
+
     void Start(){
+
+        //ScoreLabelオブジェクトに付いているScoreManagerスクリプトにアクセス
+        scoreManager = GameObject.Find("ScoreLabel").GetComponent<ScoreManager>();
+
         UpdatePlayerIcons();
+
         playerCurrentHP = playerHP;
         playerHPSlider = GameObject.Find ("PlayerHPSlider").
             GetComponent<Slider>();
@@ -58,10 +65,13 @@ public class PlayerHealth : MonoBehaviour
                 this.gameObject.SetActive(false);
 
                 //破壊された回数によって場合分け
-                if(destroyCount < 3) {
+                if(destroyCount < 5) {
                     //リトライのメソッドを1秒後に呼び出す
                     Invoke("Retry", 1.0f);
                 } else {
+                    destroyCount = 0;   //ゲームオーバーになったら残機数をリセット
+                    scoreManager.ScoreReset();  //ゲームオーバーになったらスコアをリセット
+
                     //ゲームオーバーに遷移
                     SceneManager.LoadScene("GameOver");
                 }
