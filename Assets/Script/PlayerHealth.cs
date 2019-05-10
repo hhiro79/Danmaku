@@ -23,7 +23,12 @@ public class PlayerHealth : MonoBehaviour
 
     private ScoreManager scoreManager;
 
+    private FireMissile fireMissile;
+
     void Start(){
+
+        //発射パワーのリセット
+        fireMissile = GameObject.Find("FireMissile").GetComponent<FireMissile>();
 
         //ScoreLabelオブジェクトに付いているScoreManagerスクリプトにアクセス
         scoreManager = GameObject.Find("ScoreLabel").GetComponent<ScoreManager>();
@@ -39,7 +44,10 @@ public class PlayerHealth : MonoBehaviour
 
     void OnTriggerEnter(Collider col){
 
-        if(col.gameObject.CompareTag ("EnemyMissile") && isMuteki == false){
+        //|| col.gameObject.tag == "Enemy" を追加
+        if(col.gameObject.tag == "EnemyMissile"
+            || col.gameObject.tag == "Enemy" 
+            && isMuteki == false){
 
             playerCurrentHP -= 1;
             AudioSource.PlayClipAtPoint (damageSound,
@@ -104,6 +112,9 @@ public class PlayerHealth : MonoBehaviour
         //無敵
         isMuteki = true;
         Invoke("MutekiOff", 2.0f);
+
+        //発射パワーのリセット
+        fireMissile.ResetPower();
     }
 
     //HP回復アイテム
