@@ -28,13 +28,13 @@ public class EnemyHealth : MonoBehaviour
 
         //GameObject.Find("oo")の使い方。
         //名前でオブジェクト指定できる
-        silider = GameObject.Find("EnemyHPSlider").GetComponent<Slider>();
+        //silider = GameObject.Find("EnemyHPSlider").GetComponent<Slider>();
 
         //スライダーの最大値の設定
-        silider.maxValue = enemyHP;
+        //silider.maxValue = enemyHP;
 
         //スライダーの現在値
-        silider.value = currentHP;
+        //silider.value = currentHP;
 
         //スコア
         //ScoreLabelオブジェクトについているScoreManagerスクリプトにアクセス
@@ -67,7 +67,7 @@ public class EnemyHealth : MonoBehaviour
             }
 
             //この1行がないとスライダーバーの目盛りが変化しない
-            silider.value = currentHP;
+            //silider.value = currentHP;
 
             //ミサイル削除
             Destroy(col.gameObject);
@@ -115,6 +115,6 @@ public class EnemyHealth : MonoBehaviour
     //ステージクリア
     //シーン遷移メソッド
     void GoNextStage(){
-        SceneManager.LoadScene(nextSceneNumber);
+        SceneManager.LoadScene("Title");
     }
 }

@@ -9,6 +9,7 @@ TagManager:
   - Boss
   - Enemy
   - EnemyFireMissile
+  - StageManager
   layers:
   - Default
   - TransparentFX

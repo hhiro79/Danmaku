@@ -16,9 +16,9 @@ public class EnemyHealth2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        slider = GameObject.Find("EnemyHPSlider").GetComponent<Slider>();
-        slider.maxValue = enemyHP;
-        slider.value = enemyHP;
+        //slider = GameObject.Find("EnemyHPSlider").GetComponent<Slider>();
+        //slider.maxValue = enemyHP;
+        //slider.value = enemyHP;
         sm = GameObject.Find("ScoreLabel").GetComponent<ScoreManager>();
     }
 
@@ -30,7 +30,7 @@ public class EnemyHealth2 : MonoBehaviour
             
             Destroy(effect, 0.5f);
             enemyHP -= 1;
-            slider.value = enemyHP;            
+            //slider.value = enemyHP;            
             Destroy(col.gameObject);
 
             if(enemyHP == 0){
