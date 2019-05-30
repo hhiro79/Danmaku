@@ -72,20 +72,23 @@ public class StageNorma : MonoBehaviour
         }
     }
 
-    //todo enemyhelth,2から呼ぶ
     public void AddDestroyCount(){
-        destroyEnemy++;
-        if(destroyEnemy >= enemyNorma){
-            //todo ここでリザルト表示
-            //todo クリア時のプレイヤーの処理をする
-            //todo PlayerHelthを取得してisMutekiをtrueにする
-            currentNormaTxt.text = "";
-            StartCoroutine(NextScene());
-            
-        }
-        if(StageManager.stageNum == 1 || StageManager.stageNum == 3){
-            currentNormaTxt.text = "あと" +
-                (enemyNorma - destroyEnemy) + "体";
+        if(destroyEnemy <= enemyNorma){
+            destroyEnemy++;            
+
+            if(StageManager.stageNum == 1 || StageManager.stageNum == 3){
+                currentNormaTxt.text = "あと" +
+                    (enemyNorma - destroyEnemy) + "体";
+
+                if(destroyEnemy >= enemyNorma){
+                    //todo ここでリザルト表示
+                    //todo クリア時のプレイヤーの処理をする
+                    //todo PlayerHelthを取得してisMutekiをtrueにする
+
+                    currentNormaTxt.text = "";
+                    StartCoroutine(NextScene());
+                }
+            }
         }
     }
 

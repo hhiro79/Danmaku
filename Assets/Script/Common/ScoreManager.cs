@@ -18,7 +18,7 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         //Textコンポーネントにアクセスして所得する
-        scoreLabel = this.gameObject.GetComponent<Text>();
+        scoreLabel = GameObject.Find("ScoreLabel").GetComponent<Text>();
         scoreLabel.text = "Score" + score;
     }
     

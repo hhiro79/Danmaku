@@ -14,6 +14,7 @@ public class EnemyHealth : MonoBehaviour
 
     public int scoreValue;
     private ScoreManager sm;
+    private StageNorma sn;
 
     //アイテム出現
     public GameObject[] itemPrefab;
@@ -38,7 +39,10 @@ public class EnemyHealth : MonoBehaviour
 
         //スコア
         //ScoreLabelオブジェクトについているScoreManagerスクリプトにアクセス
-        sm = GameObject.Find("ScoreLabel").GetComponent<ScoreManager>();
+        sm = GameObject.FindGameObjectWithTag("StageManager").GetComponent<ScoreManager>();
+
+        //AddDestroyCount
+        sn = GameObject.FindGameObjectWithTag("StageManager").GetComponent<StageNorma>();
     }
 
     void OnTriggerEnter(Collider col){
@@ -74,6 +78,9 @@ public class EnemyHealth : MonoBehaviour
 
             //敵のHPが0になったら敵オブジェクトを破壊
             if(currentHP == 0){
+
+                //StageNormaのAddDestroyCount呼び出し
+                sn.AddDestroyCount();
 
                 //敵オブジェクト破壊
                 //Destroy(transform.root.gameObject);

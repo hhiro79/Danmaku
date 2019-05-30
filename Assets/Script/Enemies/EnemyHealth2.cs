@@ -11,6 +11,7 @@ public class EnemyHealth2 : MonoBehaviour
     private Slider slider;
     public int scoreValue;
     private ScoreManager sm;
+    private StageNorma sn;
     public GameObject[] itemPrefab;
 
     // Start is called before the first frame update
@@ -19,7 +20,10 @@ public class EnemyHealth2 : MonoBehaviour
         //slider = GameObject.Find("EnemyHPSlider").GetComponent<Slider>();
         //slider.maxValue = enemyHP;
         //slider.value = enemyHP;
-        sm = GameObject.Find("ScoreLabel").GetComponent<ScoreManager>();
+        sm = GameObject.FindGameObjectWithTag("StageManager").GetComponent<ScoreManager>();
+
+        //AddDestroyCount
+        sn = GameObject.FindGameObjectWithTag("StageManager").GetComponent<StageNorma>();
     }
 
     void OnTriggerEnter(Collider col){
@@ -38,6 +42,9 @@ public class EnemyHealth2 : MonoBehaviour
                 AudioSource.PlayClipAtPoint(destroySound,
                     transform.position);
                 sm.AddScore(scoreValue);
+
+                //StageNormaのAddDestroyCount呼び出し
+                sn.AddDestroyCount();
             }
 
             if(itemPrefab.Length > 0) {
