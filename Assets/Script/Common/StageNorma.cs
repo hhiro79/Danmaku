@@ -18,29 +18,31 @@ public class StageNorma : MonoBehaviour
     public Text currentNormaTxt;
     [SerializeField]
     StageManager stageManager;
-    [SerializeField]
-    public GameObject enemyHPSlider;
+
+    private Text snt;   //StageNumberText
+    public int bonusValue_1;
+    public int bonusValue_2;
+    public GameObject enemyBoss;
 
     // Start is called before the first frame update
     void Start()
     {
         InitNorma();
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(StageManager.stageNum == 2 || StageManager.stageNum == 4){
+        if(StageManager.stageNum == 1 || StageManager.stageNum == 4){
             currentTime -= Time.deltaTime;
-            currentNormaTxt.text = "あと" + currentTime + "秒";
+            currentNormaTxt.text = "あと" + currentTime.ToString("f0") + "秒";
             if(currentTime <= 0 && StageManager.stageNum == 2){
                 stageManager.GoNextStage();
             }
-            if(currentTime <= 0 && StageManager.stageNum == 4){
+            if(currentTime <= 0 && StageManager.stageNum == 1){
                 clearNormaTxt.text = "ボスを倒せ！";
-                Instantiate(enemyHPSlider, enemyHPSlider.transform.position,
-                    Quaternion.identity);
+                currentNormaTxt.enabled = false;
+                enemyBoss.SetActive(true);
             }
         }
         
@@ -49,12 +51,12 @@ public class StageNorma : MonoBehaviour
     private void InitNorma(){
         Debug.Log(StageManager.stageNum);
         switch(StageManager.stageNum){
-            case 1:
+            case 2:
                 clearNormaTxt.text = "敵を" + enemyNorma + "体倒せ！";
                 currentNormaTxt.text = "あと" + (enemyNorma - destroyEnemy) +
                     "体";
                 break;
-            case 2:
+            case 1:
                 currentTime = normaTime;
                 clearNormaTxt.text = normaTime + "秒間 生き残れ！";
                 currentNormaTxt.text = "あと" + currentTime + "秒";
@@ -76,14 +78,31 @@ public class StageNorma : MonoBehaviour
         if(destroyEnemy <= enemyNorma){
             destroyEnemy++;            
 
-            if(StageManager.stageNum == 1 || StageManager.stageNum == 3){
+            if(StageManager.stageNum == 2 || StageManager.stageNum == 3){
                 currentNormaTxt.text = "あと" +
                     (enemyNorma - destroyEnemy) + "体";
 
                 if(destroyEnemy >= enemyNorma){
-                    //todo ここでリザルト表示
-                    //todo クリア時のプレイヤーの処理をする
-                    //todo PlayerHelthを取得してisMutekiをtrueにする
+                    snt = GameObject.FindGameObjectWithTag("StageNumber").
+                        GetComponent<Text>();
+                    snt.color = new Color(1, 1, 1, 1);
+                    snt.text = "STAGE CLEAR!!";
+                    GameObject.FindGameObjectWithTag("Player").
+                        GetComponent<PlayerHealth>().isMuteki = true;
+                    //ここでリザルト表示　
+                    //クリアボーナス確認　checkbonus メソッド
+                    //クリア時のプレイヤーの処理をする
+                    CheckBonus cb = GetComponent<CheckBonus>();
+                    int bonusLank = cb.CheckClearBonus();
+                    if(bonusLank == 1){
+                        snt.text += "\nSPEED CLEAR BONUS 1\n" + bonusValue_1;
+                        GameObject.FindGameObjectWithTag("ScoreManager").
+                            GetComponent<ScoreManager>().AddScore(bonusValue_1);
+                    } else if(bonusLank == 2){
+                        snt.text += "\nSPEED CLEAR BONUS 2\n" + bonusValue_2;
+                        GameObject.FindGameObjectWithTag("ScoreManager").
+                            GetComponent<ScoreManager>().AddScore(bonusValue_2);
+                    }
 
                     currentNormaTxt.text = "";
                     StartCoroutine(NextScene());

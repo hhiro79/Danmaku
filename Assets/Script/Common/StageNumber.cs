@@ -13,6 +13,7 @@ public class StageNumber : MonoBehaviour
 
         //現在のシーンの名前を取得してtextプロパティにセット
         stageNumberText.text = SceneManager.GetActiveScene ().name;
+        Destroy(this, 1.5f);
     }
 
     // Update is called once per frame
