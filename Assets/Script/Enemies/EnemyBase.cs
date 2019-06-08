@@ -55,20 +55,22 @@ public class EnemyBase : MonoBehaviour
 
             // 敵のHPが0になったら
             if(currentHP == 0){
-                // 敵オブジェクト破壊
-                Destroy(col.gameObject);
-
-				// 破壊時の効果音再生
+                // 破壊時の効果音再生
                 AudioSource.PlayClipAtPoint(destroySound,transform.position);
 
                 // 敵を破壊した瞬間にスコアを加算するメソッドを呼び出す
                 // 引数にはscoreValueを入れる
                 sm.AddScore(scoreValue);
 
-				//敵を破壊した瞬間にアイテムプレハブを実体化
-                if (itemPrefab.Length > 0) {
-                    //ランダムメソッドの活用                
-                    Instantiate (itemPrefab [Random.Range (0, itemPrefab.Length)], transform.position, Quaternion.identity);
+                if(col.gameObject.tag == "Enemy"){
+                    // 敵オブジェクト破壊
+                    Destroy(col.gameObject);
+
+                    //敵を破壊した瞬間にアイテムプレハブを実体化
+                    if (itemPrefab.Length > 0) {
+                        //ランダムメソッドの活用                
+                        Instantiate (itemPrefab [Random.Range (0, itemPrefab.Length)], transform.position, Quaternion.identity);
+                    }
                 }                
             }
         }

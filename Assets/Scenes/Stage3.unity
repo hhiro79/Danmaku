@@ -207,7 +207,6 @@ MonoBehaviour:
   clearLevel_1: 40
   clearLevel_2: 20
   bonusLank: 0
-  secretEnemyCount: 0
 --- !u!114 &24700151 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2522995650940862330, guid: ec369dcc27f09cb4e8a71ef246f951ca,
@@ -417,7 +416,7 @@ PrefabInstance:
     - target: {fileID: 8032318159953766786, guid: cf0c78a8a961e2540a49883387b63b97,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8032318159953766785, guid: cf0c78a8a961e2540a49883387b63b97,
         type: 3}
@@ -473,11 +472,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8032318160801354191, guid: cf0c78a8a961e2540a49883387b63b97,
-        type: 3}
-      propertyPath: isSecretBonusEnemy
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf0c78a8a961e2540a49883387b63b97, type: 3}
@@ -681,7 +675,7 @@ PrefabInstance:
     - target: {fileID: 8032318159953766786, guid: cf0c78a8a961e2540a49883387b63b97,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8032318159953766785, guid: cf0c78a8a961e2540a49883387b63b97,
         type: 3}
@@ -742,11 +736,6 @@ PrefabInstance:
         type: 3}
       propertyPath: itemPrefab.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8032318160801354191, guid: cf0c78a8a961e2540a49883387b63b97,
-        type: 3}
-      propertyPath: isSecretBonusEnemy
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf0c78a8a961e2540a49883387b63b97, type: 3}
@@ -2352,7 +2341,7 @@ PrefabInstance:
     - target: {fileID: 8032318159953766786, guid: cf0c78a8a961e2540a49883387b63b97,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8032318159953766785, guid: cf0c78a8a961e2540a49883387b63b97,
         type: 3}
@@ -2408,11 +2397,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8032318160801354191, guid: cf0c78a8a961e2540a49883387b63b97,
-        type: 3}
-      propertyPath: isSecretBonusEnemy
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf0c78a8a961e2540a49883387b63b97, type: 3}
@@ -3636,6 +3620,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: clearNormaTxt
+      value: 
+      objectReference: {fileID: 982589369}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: currentNormaTxt
+      value: 
+      objectReference: {fileID: 1786816628}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: enemyNorma
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: bonusValue_1
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: bonusValue_2
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: normaTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: enemyBoss
+      value: 
+      objectReference: {fileID: 1636180671}
     - target: {fileID: 5275266706400743302, guid: ec369dcc27f09cb4e8a71ef246f951ca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3691,41 +3710,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: clearNormaTxt
-      value: 
-      objectReference: {fileID: 982589369}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: currentNormaTxt
-      value: 
-      objectReference: {fileID: 1786816628}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: enemyNorma
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: bonusValue_1
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: bonusValue_2
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: normaTime
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: enemyBoss
-      value: 
-      objectReference: {fileID: 1636180671}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec369dcc27f09cb4e8a71ef246f951ca, type: 3}
 --- !u!222 &6148289172792233593
@@ -4247,11 +4231,6 @@ PrefabInstance:
         type: 3}
       propertyPath: itemPrefab.Array.data[4]
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8032318160801354191, guid: cf0c78a8a961e2540a49883387b63b97,
-        type: 3}
-      propertyPath: isSecretBonusEnemy
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf0c78a8a961e2540a49883387b63b97, type: 3}

@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 3177072468592259001}
   m_Layer: 0
   m_Name: EnemyA_2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -310,6 +310,8 @@ MonoBehaviour:
   enemyHP: 3
   scoreValue: 300
   itemPrefab: []
+  nextSceneNumber: 0
+  clearSound: {fileID: 0}
 --- !u!1 &6664780147473672259
 GameObject:
   m_ObjectHideFlags: 0

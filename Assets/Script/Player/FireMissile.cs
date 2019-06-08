@@ -44,6 +44,13 @@ public class FireMissile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //発射パワーがMAXかどうか
+        //MAXならチャージできる　ゲージの色を変える　SE
+        //タイマー変数を用意し、長押しの秒数を計る
+        //ボタンを押した時、離した時、長押ししてる時の3状態
+        //押した瞬間は通常弾
+
+
         //発射パワーの回復
         if(shotPower <= 0 && counter <= 0) {
             StartCoroutine (RecoverPower ());

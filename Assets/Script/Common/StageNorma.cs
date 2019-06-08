@@ -19,10 +19,12 @@ public class StageNorma : MonoBehaviour
     [SerializeField]
     StageManager stageManager;
 
-    private Text snt;   //StageNumberText
+    private Text stageNumberText;
     public int bonusValue_1;
     public int bonusValue_2;
     public GameObject enemyBoss;
+
+    private bool isBonus;
 
     // Start is called before the first frame update
     void Start()
@@ -33,30 +35,30 @@ public class StageNorma : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(StageManager.stageNum == 1 || StageManager.stageNum == 4){
+        if(StageManager.stageNum == 2 || StageManager.stageNum == 4){
             currentTime -= Time.deltaTime;
             currentNormaTxt.text = "あと" + currentTime.ToString("f0") + "秒";
             if(currentTime <= 0 && StageManager.stageNum == 2){
-                stageManager.GoNextStage();
+                 DisplayResultText();
+                StartCoroutine(NextScene());
             }
-            if(currentTime <= 0 && StageManager.stageNum == 1){
+            if(currentTime <= 0 && StageManager.stageNum == 4){
                 clearNormaTxt.text = "ボスを倒せ！";
                 currentNormaTxt.enabled = false;
                 enemyBoss.SetActive(true);
             }
         }
-        
     }
 
     private void InitNorma(){
         Debug.Log(StageManager.stageNum);
         switch(StageManager.stageNum){
-            case 2:
+            case 1:
                 clearNormaTxt.text = "敵を" + enemyNorma + "体倒せ！";
                 currentNormaTxt.text = "あと" + (enemyNorma - destroyEnemy) +
                     "体";
                 break;
-            case 1:
+            case 2:
                 currentTime = normaTime;
                 clearNormaTxt.text = normaTime + "秒間 生き残れ！";
                 currentNormaTxt.text = "あと" + currentTime + "秒";
@@ -78,40 +80,68 @@ public class StageNorma : MonoBehaviour
         if(destroyEnemy <= enemyNorma){
             destroyEnemy++;            
 
-            if(StageManager.stageNum == 2 || StageManager.stageNum == 3){
+            if(StageManager.stageNum == 1 || StageManager.stageNum == 3){
                 currentNormaTxt.text = "あと" +
                     (enemyNorma - destroyEnemy) + "体";
 
                 if(destroyEnemy >= enemyNorma){
-                    snt = GameObject.FindGameObjectWithTag("StageNumber").
-                        GetComponent<Text>();
-                    snt.color = new Color(1, 1, 1, 1);
-                    snt.text = "STAGE CLEAR!!";
-                    GameObject.FindGameObjectWithTag("Player").
-                        GetComponent<PlayerHealth>().isMuteki = true;
-                    //ここでリザルト表示　
-                    //クリアボーナス確認　checkbonus メソッド
-                    //クリア時のプレイヤーの処理をする
-                    CheckBonus cb = GetComponent<CheckBonus>();
-                    int bonusLank = cb.CheckClearBonus();
-                    if(bonusLank == 1){
-                        snt.text += "\nSPEED CLEAR BONUS 1\n" + bonusValue_1;
-                        GameObject.FindGameObjectWithTag("ScoreManager").
-                            GetComponent<ScoreManager>().AddScore(bonusValue_1);
-                    } else if(bonusLank == 2){
-                        snt.text += "\nSPEED CLEAR BONUS 2\n" + bonusValue_2;
-                        GameObject.FindGameObjectWithTag("ScoreManager").
-                            GetComponent<ScoreManager>().AddScore(bonusValue_2);
+                    if (!isBonus)
+                    {
+                        DisplayResultText();
+                        StartCoroutine(NextScene());
                     }
-
-                    currentNormaTxt.text = "";
-                    StartCoroutine(NextScene());
                 }
             }
         }
     }
 
+    /// <summary>
+    /// ステージクリアのリザルトを表示
+    /// </summary>
+    private void DisplayResultText()
+    {
+        stageNumberText = GameObject.FindGameObjectWithTag("StageNumber").
+            GetComponent<Text>();
+        stageNumberText.color = new Color(1, 1, 1, 1);
+        stageNumberText.text = "STAGE CLEAR!!";
+        GameObject.FindGameObjectWithTag("Player").
+            GetComponent<PlayerHealth>().isMuteki = true;
+        //ここでリザルト表示　
+        //クリアボーナス確認　checkbonus メソッド
+        //クリア時のプレイヤーの処理をする
+        CheckBonus cb = GetComponent<CheckBonus>();
+      
+        if(StageManager.stageNum == 1 || StageManager.stageNum == 3)
+        {
+            int bonusLank = cb.CheckClearBonus();
+
+            if (bonusLank == 1)
+            {
+                stageNumberText.text += "\nSPEED CLEAR BONUS 1\n" + bonusValue_1;
+                GetComponent<ScoreManager>().AddScore(bonusValue_1);
+            }
+            else if (bonusLank == 2)
+            {
+                stageNumberText.text += "\nSPEED CLEAR BONUS 2\n" + bonusValue_2;
+                GetComponent<ScoreManager>().AddScore(bonusValue_2);
+            }
+        }
+        else if(StageManager.stageNum == 2)
+        {
+            bool secretBonusClear = cb.CheckSecretEnemyBonus(enemyNorma);
+            if (secretBonusClear)
+            {
+                stageNumberText.text += "\nSECRET ENEMY BONUS\n" + bonusValue_2;
+                GetComponent<ScoreManager>().AddScore(bonusValue_2);
+            }
+        }
+        
+        currentNormaTxt.text = "";
+        isBonus = true;
+    }
+
     private IEnumerator NextScene(){
+        GetComponent<ScoreManager>().SaveHighScore();
         yield return new WaitForSeconds(5.0f);
         stageManager.GoNextStage();
     }

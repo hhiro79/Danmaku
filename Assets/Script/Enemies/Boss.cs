@@ -9,6 +9,8 @@ public class Boss : EnemyBase {
     // ボスのHPバー
     private Slider slider;
 
+    private Text stageNumberText;
+
     [SerializeField]
     public Slider enemyHPSlider;
 
@@ -47,11 +49,17 @@ public class Boss : EnemyBase {
         if(currentHP == 0){
             //親オブジェクトにBossというTagがついていたならばステージクリア
             if (this.gameObject.transform.root.CompareTag("Boss")) {
+                this.gameObject.SetActive(false);
+
                 //クリア音を鳴らす
                 AudioSource.PlayClipAtPoint(clearSound, Camera.main.transform.position, 0.4f);
 
                 //1秒後にシーン遷移のメソッドを実行
-                Invoke("GoNextStage", 1);
+                GameObject.FindGameObjectWithTag("ScoreManager").
+                    GetComponent<ScoreManager>().SaveHighScore();
+                ClearMessage();
+                Debug.Log("通過");
+                Invoke("GoNextStage", 5);
             }
         }
     }
@@ -60,6 +68,14 @@ public class Boss : EnemyBase {
     /// ゲームクリアによるシーン遷移処理
     /// </summary>
     private void GoNextStage(){
+        Debug.Log("通過");
         SceneManager.LoadScene("Title");
+    }
+
+    private void ClearMessage(){
+        stageNumberText = GameObject.FindGameObjectWithTag("StageNumber").
+            GetComponent<Text>();
+        stageNumberText.color = new Color(1, 1, 1, 1);
+        stageNumberText.text = "GAME CLEAR!!";
     }
 }

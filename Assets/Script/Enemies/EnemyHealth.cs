@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -22,6 +21,8 @@ public class EnemyHealth : MonoBehaviour
     //ステージクリア
     public int nextSceneNumber;
     public AudioClip clearSound;
+
+    public bool isSecretBonusEnemy;
 
     void Start(){
 
@@ -79,6 +80,12 @@ public class EnemyHealth : MonoBehaviour
             //敵のHPが0になったら敵オブジェクトを破壊
             if(currentHP == 0){
 
+                if (isSecretBonusEnemy)
+                {
+                    GameObject.FindGameObjectWithTag("StageManager").
+                        GetComponent<CheckBonus>().AddSecretEnemyBonus();
+                }
+
                 //StageNormaのAddDestroyCount呼び出し
                 sn.AddDestroyCount();
 
@@ -104,24 +111,7 @@ public class EnemyHealth : MonoBehaviour
                     //敵を破壊した瞬間にアイテムプレハブを実体化
                     Instantiate (dropItem, transform.position, Quaternion.identity);
                 }
-
-                //ステージクリア
-                //親オブジェクトにBossというTagがついていたならば
-                if(this.gameObject.transform.root.CompareTag("Boss")){
-
-                    //クリア音を鳴らす
-                    AudioSource.PlayClipAtPoint(clearSound, Camera.main.transform.position, 0.4f);
-
-                    //1秒後にシーン遷移のメソッドを実行
-                    Invoke("GoNextStage", 1);
-                }
             }
         }
-    }
-
-    //ステージクリア
-    //シーン遷移メソッド
-    void GoNextStage(){
-        SceneManager.LoadScene("Title");
     }
 }
