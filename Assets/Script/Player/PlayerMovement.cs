@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,16 +11,18 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float moveH = -Input.GetAxis ("Horizontal") * moveSpeed;
-        float moveV = -Input.GetAxis ("Vertical") * moveSpeed;
+        float moveH = -CrossPlatformInputManager.GetAxis ("Horizontal") * moveSpeed;
+        float moveV = -CrossPlatformInputManager.GetAxis ("Vertical") * moveSpeed;
 
-        float moveX = -Input.GetAxis("Mouse X") * moveSpeed;
-        float moveY = -Input.GetAxis("Mouse Y") * moveSpeed;
+        //float moveX = -CrossPlatformInputManager.GetAxis("Mouse X") * moveSpeed * 2.5f;
+        //float moveY = -CrossPlatformInputManager.GetAxis("Mouse Y") * moveSpeed * 2.5f;
 
         transform.Translate (moveH, 0.0f, moveV);
-        transform.Translate (moveX, 0.0f, moveY);
+        //transform.Translate (moveX, 0.0f, moveY);
 
         Clamp();
+        Debug.Log(moveH);
+        //Debug.Log(moveX);
     }
 
 

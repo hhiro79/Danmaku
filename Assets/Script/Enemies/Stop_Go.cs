@@ -31,6 +31,11 @@ public class Stop_Go : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!target)
+        {
+            return;
+        }
+
         timeCount += Time.deltaTime;
 
         if(timeCount >= stopTime && !stopKey){

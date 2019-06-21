@@ -13,6 +13,7 @@ public class StageManager : MonoBehaviour
     void Awake()
     {
         if(SceneManager.GetActiveScene().name == "Title") {
+            PlayerHealth.currentSpecialMissile = 0;
             stageNum = 0;
         }
         if(SceneManager.GetActiveScene().name == "Stage1") {

@@ -19,7 +19,9 @@ public class EnemyBase : MonoBehaviour
     
     public int currentHP; 
     public ScoreManager sm;
-        
+
+    public bool isSecretBonusEnemy;
+
     private void Start(){
     	// 現在HPを最大HPに設定
         currentHP = enemyHP;
@@ -40,21 +42,45 @@ public class EnemyBase : MonoBehaviour
     
     public virtual void OnTriggerEnter(Collider col){
         //もしもぶつかった相手にMissileというタグが付いてたら
-        if(col.gameObject.CompareTag("Missile")){
-        	// ミサイル削除
-            Destroy(col.gameObject);
-            
-            // 破壊時のエフェクト発生
-            GameObject effect = Instantiate (effectPrefab, transform.position, Quaternion.identity) as GameObject;
-            
-            // 0.5秒後にエフェクトを消す
+        if (col.gameObject.tag == "Missile" || col.gameObject.tag == "Special")
+        {
+
+            bool specialFlag = false;
+            if (col.gameObject.CompareTag("Special"))
+            {
+                specialFlag = true;
+            }
+
+            //エフェクト発生
+            GameObject effect = Instantiate(effectPrefab,
+                transform.position, Quaternion.identity)
+                as GameObject;
+
+            //0.5秒後にエフェクトを消す
             Destroy(effect, 0.5f);
 
-            // 敵のHPを減少させる
-            currentHP -= 1;
+            //敵のHPを減少させる
+            if (!specialFlag)
+            {
+                currentHP -= 1;
 
-            // 敵のHPが0になったら
-            if(currentHP == 0){
+                //ミサイル削除
+                Destroy(col.gameObject);
+            }
+            else
+            {
+                currentHP -= 10;
+            }
+
+            // 敵のHPが0以下になったら
+            if(currentHP <= 0){
+
+                if (isSecretBonusEnemy)
+                {
+                    GameObject.FindGameObjectWithTag("StageManager").
+                        GetComponent<CheckBonus>().AddSecretEnemyBonus();
+                }
+                
                 // 破壊時の効果音再生
                 AudioSource.PlayClipAtPoint(destroySound,transform.position);
 
@@ -62,7 +88,10 @@ public class EnemyBase : MonoBehaviour
                 // 引数にはscoreValueを入れる
                 sm.AddScore(scoreValue);
 
-                if(col.gameObject.tag == "Enemy"){
+                //StageNormaのAddDestroyCount呼び出し
+                sn.AddDestroyCount();
+
+                if (col.gameObject.tag == "Enemy"){
                     // 敵オブジェクト破壊
                     Destroy(col.gameObject);
 
@@ -71,7 +100,21 @@ public class EnemyBase : MonoBehaviour
                         //ランダムメソッドの活用                
                         Instantiate (itemPrefab [Random.Range (0, itemPrefab.Length)], transform.position, Quaternion.identity);
                     }
-                }                
+                }
+            }
+            else
+            {
+                if (currentHP <= Mathf.FloorToInt(enemyHP / 50.0f))
+                {
+                    EnemyGene2 e2 = GameObject.Find("EnemyGene2").
+                    GetComponent<EnemyGene2>();
+                    e2.CreateEnemy();
+                    if (!e2)
+                    {
+                        return;
+                    }
+                    Debug.Log("敵生成");
+                }
             }
         }
     }

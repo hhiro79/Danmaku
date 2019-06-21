@@ -49,8 +49,14 @@ public class EnemyHealth : MonoBehaviour
     void OnTriggerEnter(Collider col){
 
         //もしもぶつかった相手にMissileというタグが付いてたら
-        if(col.gameObject.CompareTag("Missile")){
-            
+        if(col.gameObject.tag == "Missile" || col.gameObject.tag == "Special"){
+
+            bool specialFlag = false;
+            if (col.gameObject.CompareTag("Special"))
+            {
+                specialFlag = true;
+            }
+
             //エフェクト発生
             GameObject effect = Instantiate (effectPrefab,
                 transform.position, Quaternion.identity)
@@ -60,25 +66,22 @@ public class EnemyHealth : MonoBehaviour
             Destroy(effect, 0.5f);
 
             //敵のHPを減少させる
-            currentHP -= 1;
-            if(currentHP <= Mathf.FloorToInt(enemyHP/50.0f)){
-                EnemyGene2 e2 = GameObject.Find("EnemyGene2").
-                    GetComponent<EnemyGene2>();
-                    e2.CreateEnemy();
-                    if(!e2){
-                        return;
-                    }
-                    Debug.Log("敵生成");
+            if (!specialFlag)
+            {
+                currentHP -= 1;
+
+                //ミサイル削除
+                Destroy(col.gameObject);
+            } else
+            {
+                currentHP -= 10;
             }
 
             //この1行がないとスライダーバーの目盛りが変化しない
             //silider.value = currentHP;
 
-            //ミサイル削除
-            Destroy(col.gameObject);
-
             //敵のHPが0になったら敵オブジェクトを破壊
-            if(currentHP == 0){
+            if(currentHP <= 0){
 
                 if (isSecretBonusEnemy)
                 {
@@ -110,6 +113,20 @@ public class EnemyHealth : MonoBehaviour
                     
                     //敵を破壊した瞬間にアイテムプレハブを実体化
                     Instantiate (dropItem, transform.position, Quaternion.identity);
+                }
+            }
+            else
+            {
+                if (currentHP <= Mathf.FloorToInt(enemyHP / 50.0f))
+                {
+                    EnemyGene2 e2 = GameObject.Find("EnemyGene2").
+                    GetComponent<EnemyGene2>();
+                    e2.CreateEnemy();
+                    if (!e2)
+                    {
+                        return;
+                    }
+                    Debug.Log("敵生成");
                 }
             }
         }

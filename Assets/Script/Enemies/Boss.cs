@@ -46,7 +46,7 @@ public class Boss : EnemyBase {
             Debug.Log("敵生成");
         }
 
-        if(currentHP == 0){
+        if(currentHP <= 0){
             //親オブジェクトにBossというTagがついていたならばステージクリア
             if (this.gameObject.transform.root.CompareTag("Boss")) {
                 this.gameObject.SetActive(false);

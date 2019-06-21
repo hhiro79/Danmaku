@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class FireMissile : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class FireMissile : MonoBehaviour
 
     [SerializeField, HeaderAttribute("弾の最大値")]
     public int maxPower = 100;
-    private int shotPower;    
+    public int shotPower;    
     private Slider powerSlider;
 
     //発射パワーの回復
@@ -24,21 +25,31 @@ public class FireMissile : MonoBehaviour
     //発射パワーの表示
     private Slider waitTimeSlider;
 
+    //メインの発射口かどうか(trueならメイン)
+    public bool mainPod;
+
+    //サブポッドの許可フラグ
+    public bool subPod;
+
     /// <summary>
     /// 弾切れ発生
     /// </summary>
     void Start(){
-        shotPower = maxPower;
-        powerSlider = GameObject.Find ("PowerSlider").
-            GetComponent<Slider>();
-        powerSlider.maxValue = maxPower;
-        powerSlider.value = shotPower;
 
-        //発射パワーの表示
-        waitTimeSlider = GameObject.Find("WaitTimeSlider")
-            .GetComponent<Slider>();
-        waitTimeSlider.maxValue = RecoveryTime;
-        waitTimeSlider.value = RecoveryTime;
+        if (mainPod)
+        {
+            shotPower = maxPower;
+            powerSlider = GameObject.Find("PowerSlider").
+                GetComponent<Slider>();
+            powerSlider.maxValue = maxPower;
+            powerSlider.value = shotPower;
+
+            //発射パワーの表示
+            waitTimeSlider = GameObject.Find("WaitTimeSlider")
+                .GetComponent<Slider>();
+            waitTimeSlider.maxValue = RecoveryTime;
+            waitTimeSlider.value = RecoveryTime;
+        }
     }
 
     // Update is called once per frame
@@ -50,40 +61,51 @@ public class FireMissile : MonoBehaviour
         //ボタンを押した時、離した時、長押ししてる時の3状態
         //押した瞬間は通常弾
 
-
         //発射パワーの回復
-        if(shotPower <= 0 && counter <= 0) {
-            StartCoroutine (RecoverPower ());
+        if (mainPod) {
+            if (shotPower <= 0 && counter <= 0)
+            {
+                StartCoroutine(RecoverPower());
+            }
         }
-
-        timeCount += 1;
         
-        if(Input.GetButton ("Fire1")) {
+        timeCount += 1;
 
+        if (CrossPlatformInputManager.GetButton("Fire1")) { 
+            //(Input.GetButton("Fire1") ||
+            
             //弾切れ発生
             if (shotPower <= 0) {
                 return;
             }
-            shotPower -= 1;
-            powerSlider.value = shotPower;
 
-            //数字を変えると連射の間隔を変更できる
-            if(timeCount % 5 == 0){
+            //メインポッドか、サブポッドならばフラグが立っていれば
+            if (mainPod || !mainPod && subPod)
+            {
+                if (mainPod) { 
+                    shotPower -= 1;
+                    powerSlider.value = shotPower;
+                }
 
-                //プレハブからミサイルオブジェクトを作成し、
-                //それをmissileという箱に入れる
-                GameObject missile = Instantiate (missilePrefab,
-                transform.position, Quaternion.identity)
-                as GameObject;
+                //数字を変えると連射の間隔を変更できる
+                if (timeCount % 5 == 0)
+                {
 
-                Rigidbody missileRb = missile.GetComponent<Rigidbody>();
+                    //プレハブからミサイルオブジェクトを作成し、
+                    //それをmissileという箱に入れる
+                    GameObject missile = Instantiate(missilePrefab,
+                    transform.position, Quaternion.identity);
+                    //as GameObject;
 
-                missileRb.AddForce (transform.forward * missileSpeed);
+                    Rigidbody missileRb = missile.GetComponent<Rigidbody>();
 
-                AudioSource.PlayClipAtPoint (fireSound, transform.position);
+                    missileRb.AddForce(transform.forward * missileSpeed);
 
-                //発射したミサイルを2秒後に破壊する
-                Destroy(missile, 2.0f);
+                    AudioSource.PlayClipAtPoint(fireSound, transform.position);
+
+                    //発射したミサイルを2秒後に破壊する
+                    Destroy(missile, 2.0f);
+                }
             }
         }
     }

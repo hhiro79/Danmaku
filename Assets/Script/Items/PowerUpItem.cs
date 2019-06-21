@@ -6,14 +6,29 @@ public class PowerUpItem : MonoBehaviour
 {
     public GameObject effectPrefab;
     public AudioClip getSound;
-    private GameObject fireMissilePod1;
-    private GameObject fireMissilePod2;
+    private FireMissile fireMissilePod1;
+    private FireMissile fireMissilePod2;
+    private FireMissile mainPod;
+    public float powerUpCount = 15.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        fireMissilePod1 = GameObject.Find ("FireMissileB");
-        fireMissilePod2 = GameObject.Find ("FireMissileC");
+        fireMissilePod1 = GameObject.Find ("FireMissileB").GetComponent<FireMissile>();
+        fireMissilePod2 = GameObject.Find ("FireMissileC").GetComponent<FireMissile>();
+        mainPod = GameObject.Find("FireMissile").GetComponent<FireMissile>();
+    }
+
+    void Update()
+    {
+        if (fireMissilePod1.subPod)
+        {
+            fireMissilePod1.shotPower = mainPod.shotPower;
+        }
+        if (fireMissilePod2.subPod)
+        {
+            fireMissilePod2.shotPower = mainPod.shotPower;
+        }
     }
 
     void OnTriggerEnter (Collider col){
@@ -29,11 +44,11 @@ public class PowerUpItem : MonoBehaviour
             //ここでアイテムを破壊するとメモリ上から消えてNomalメソッドが実行されなくなる
             this.gameObject.SetActive(false);
 
-            //FireMissileスクリプトを有効に
-            fireMissilePod1.GetComponent<FireMissile>().enabled = true;
-            fireMissilePod2.GetComponent<FireMissile>().enabled = true;
+            //FireMissileスクリプトのサブポッドフラグを有効に
+            fireMissilePod1.subPod = true;
+            fireMissilePod2.subPod = true;
 
-            Invoke("Normal", 3);
+            Invoke("Normal", powerUpCount);
 
             Destroy (effect, 2.0f);
         }
@@ -42,9 +57,9 @@ public class PowerUpItem : MonoBehaviour
     //プレイヤーの攻撃力を戻す
     void Normal(){
 
-        //FireMissileスクリプトを無効に
-        fireMissilePod1.GetComponent<FireMissile> ().enabled = false;
-        fireMissilePod2.GetComponent<FireMissile> ().enabled = false;
+        //FireMissileスクリプトのサブポッドフラグを無効に
+        fireMissilePod1.subPod = false;
+        fireMissilePod2.subPod = false;
 
         //アイテムをメモリ上から消す
         Destroy (this.gameObject);

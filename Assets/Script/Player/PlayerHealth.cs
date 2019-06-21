@@ -13,6 +13,11 @@ public class PlayerHealth : MonoBehaviour
     private int playerCurrentHP;
     private Slider playerHPSlider;
 
+    //SP弾回数上限
+    //アイテム入手でメソッド呼び出し
+    private int maxSpecialMissile = 5;
+    public static int currentSpecialMissile;    //タイトル画面で0にする
+
     public GameObject[] playerIcons;
 
     //プレーヤーが破壊された回数
