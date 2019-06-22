@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8685305572045227020}
   - component: {fileID: 8685305572045227021}
+  - component: {fileID: 746079967}
   m_Layer: 0
   m_Name: FireMissile
   m_TagString: Untagged
@@ -47,6 +48,27 @@ MonoBehaviour:
     type: 3}
   missileSpeed: 500
   fireSound: {fileID: 8300000, guid: c2cae1bd43425a64da7bbe22b599d80e, type: 3}
+  maxPower: 500
+  shotPower: 0
+  mainPod: 1
+  subPod: 0
+--- !u!114 &746079967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8685305572045227011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 515780f2f46ecaf46acaac9678d79246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missilePrefab: {fileID: 5703605308788485690, guid: a3b38bb0c86c2814688b46ba4c5f7a4f,
+    type: 3}
+  missileSpeed: 0
+  fireSound: {fileID: 8300000, guid: 4fe85c25a378a0647b0108fba3801877, type: 3}
+  waitCount: 5
 --- !u!1 &8685305572249718393
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,6 +158,7 @@ GameObject:
   - component: {fileID: 8685305572122349701}
   - component: {fileID: 8685305572122349700}
   - component: {fileID: 8685305572122349702}
+  - component: {fileID: 661638554}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -209,8 +232,22 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  destroyCount: 2
   isMuteki: 0
+  meshRenderer: {fileID: 8685305572247773303}
+  playerState: 0
+--- !u!114 &661638554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8685305572249724431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ea3b919c3fb242aa5ef6d3394e246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  specialButton: {fileID: 0}
 --- !u!1 &8685305573234095882
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +286,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8685305573234095882}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3af2487c10f7af46b257b1573048b74, type: 3}
   m_Name: 
@@ -258,6 +295,10 @@ MonoBehaviour:
     type: 3}
   missileSpeed: 500
   fireSound: {fileID: 8300000, guid: c2cae1bd43425a64da7bbe22b599d80e, type: 3}
+  maxPower: 500
+  shotPower: 0
+  mainPod: 0
+  subPod: 0
 --- !u!1 &8685305573237894451
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +337,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8685305573237894451}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3af2487c10f7af46b257b1573048b74, type: 3}
   m_Name: 
@@ -305,3 +346,7 @@ MonoBehaviour:
     type: 3}
   missileSpeed: 500
   fireSound: {fileID: 8300000, guid: c2cae1bd43425a64da7bbe22b599d80e, type: 3}
+  maxPower: 500
+  shotPower: 0
+  mainPod: 0
+  subPod: 0

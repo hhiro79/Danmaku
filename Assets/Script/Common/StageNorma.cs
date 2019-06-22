@@ -104,8 +104,8 @@ public class StageNorma : MonoBehaviour
             GetComponent<Text>();
         stageNumberText.color = new Color(1, 1, 1, 1);
         stageNumberText.text = "STAGE CLEAR!!";
-        GameObject.FindGameObjectWithTag("Player").
-            GetComponent<PlayerHealth>().isMuteki = true;
+        PlayerHealth playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        playerHealth.playerState = PlayerHealth.PlayerState.MUTEKI;
         //ここでリザルト表示　
         //クリアボーナス確認　checkbonus メソッド
         //クリア時のプレイヤーの処理をする

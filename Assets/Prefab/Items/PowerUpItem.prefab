@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 677881262643251173}
   m_Layer: 0
   m_Name: PowerUpItem
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,6 +105,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38689f793f336334d8b7bbbe0aeef9ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effectTextPrefab: {fileID: 4487057673178612504, guid: 70a23a8c83ec3344dbf169143ff85a40,
+    type: 3}
+  moveSpeed: 5
+  itemType: 0
   effectPrefab: {fileID: 7183235517943459273, guid: 35081bee809ab8f48943e089b8817962,
     type: 3}
   getSound: {fileID: 8300000, guid: bde18efe8a3434d4987715d4fafc5086, type: 3}
+  powerUpCount: 15

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUpItem : MonoBehaviour
+public class PowerUpItem : ItemBase
 {
     public GameObject effectPrefab;
     public AudioClip getSound;
@@ -12,15 +12,17 @@ public class PowerUpItem : MonoBehaviour
     public float powerUpCount = 15.0f;
 
     // Start is called before the first frame update
-    void Start()
+    public override void SetUp()
     {
         fireMissilePod1 = GameObject.Find ("FireMissileB").GetComponent<FireMissile>();
         fireMissilePod2 = GameObject.Find ("FireMissileC").GetComponent<FireMissile>();
         mainPod = GameObject.Find("FireMissile").GetComponent<FireMissile>();
     }
 
-    void Update()
+    public override void Update()
     {
+        base.Update();
+
         if (fireMissilePod1.subPod)
         {
             fireMissilePod1.shotPower = mainPod.shotPower;
@@ -31,27 +33,25 @@ public class PowerUpItem : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter (Collider col){
-        if (col.gameObject.CompareTag("Missile")){
+    public override void ItemEffects()
+    {
+        //エフェクト発生
+        GameObject effect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
 
-            //エフェクト発生
-            GameObject effect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
+        //効果音
+        AudioSource.PlayClipAtPoint(getSound, Camera.main.transform.position, 0.4f);
 
-            //効果音
-            AudioSource.PlayClipAtPoint(getSound, Camera.main.transform.position, 0.4f);
+        //アイテムを非アクティブに
+        //ここでアイテムを破壊するとメモリ上から消えてNomalメソッドが実行されなくなる
+        this.gameObject.SetActive(false);
 
-            //アイテムを非アクティブに
-            //ここでアイテムを破壊するとメモリ上から消えてNomalメソッドが実行されなくなる
-            this.gameObject.SetActive(false);
+        //FireMissileスクリプトのサブポッドフラグを有効に
+        fireMissilePod1.subPod = true;
+        fireMissilePod2.subPod = true;
 
-            //FireMissileスクリプトのサブポッドフラグを有効に
-            fireMissilePod1.subPod = true;
-            fireMissilePod2.subPod = true;
+        Invoke("Normal", powerUpCount);
 
-            Invoke("Normal", powerUpCount);
-
-            Destroy (effect, 2.0f);
-        }
+        Destroy(effect, 2.0f);
     }
 
     //プレイヤーの攻撃力を戻す

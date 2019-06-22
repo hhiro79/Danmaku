@@ -23,14 +23,24 @@ public class PlayerHealth : MonoBehaviour
     //プレーヤーが破壊された回数
     public static int destroyCount = 0;
 
-    //無敵
-    public bool isMuteki = false;
-
     private ScoreManager scoreManager;
 
     private FireMissile fireMissile;
 
+    public MeshRenderer meshRenderer;
+
+    public enum PlayerState
+    {
+        NORMAL,
+        MUTEKI  //無敵状態
+    }
+
+    //PlayerState(enum)型の変数playerState
+    public PlayerState playerState;
+
     void Start(){
+
+        playerState = PlayerState.NORMAL;
 
         //発射パワーのリセット
         fireMissile = GameObject.Find("FireMissile").GetComponent<FireMissile>();
@@ -52,7 +62,7 @@ public class PlayerHealth : MonoBehaviour
         //|| col.gameObject.tag == "Enemy" を追加
         if(col.gameObject.tag == "EnemyMissile"
             || col.gameObject.tag == "Enemy" 
-            && isMuteki == false){
+            && playerState != PlayerState.MUTEKI){
 
             playerCurrentHP -= 1;
             AudioSource.PlayClipAtPoint (damageSound,
@@ -75,7 +85,9 @@ public class PlayerHealth : MonoBehaviour
                     Camera.main.transform.position, 0.2f);
 
                 //プレイヤーを破壊せず非アクティブ状態に
-                this.gameObject.SetActive(false);
+                //this.gameObject.SetActive(false);
+
+                meshRenderer.enabled = false;
 
                 //破壊された回数によって場合分け
                 if(destroyCount < 5) {
@@ -110,12 +122,14 @@ public class PlayerHealth : MonoBehaviour
     /// ゲームリトライに関するメソッド
     /// </summary>
     void Retry(){
-        this.gameObject.SetActive(true);
+
+        //this.gameObject.SetActive(true);
+        meshRenderer.enabled = true;
         playerCurrentHP = playerHP;
         playerHPSlider.value = playerCurrentHP;
 
         //無敵
-        isMuteki = true;
+        playerState = PlayerState.MUTEKI;
         Invoke("MutekiOff", 2.0f);
 
         //発射パワーのリセット
@@ -160,6 +174,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     void MutekiOff(){
-        isMuteki = false;
+        
+        playerState = PlayerState.NORMAL;
     }
 }

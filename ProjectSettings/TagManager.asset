@@ -13,6 +13,7 @@ TagManager:
   - StageNumber
   - ScoreManager
   - Special
+  - Item
   layers:
   - Default
   - TransparentFX
