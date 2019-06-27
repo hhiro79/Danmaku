@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ItemBase : MonoBehaviour
 {
+    public GameObject effectPrefab;
+    public AudioClip getSound;
     public GameObject effectTextPrefab;
     public float moveSpeed = 5.0f;
 
@@ -18,6 +20,8 @@ public class ItemBase : MonoBehaviour
     }
     public ItemType itemType;
 
+    protected GameObject effect;
+
     private void Start()
     {
         SetUp();
@@ -25,10 +29,8 @@ public class ItemBase : MonoBehaviour
 
     public virtual void SetUp()
     {
-        
     }
 
-    // Update is called once per frame
     public virtual void Update()
     {
         //画面下に流れていく処理
@@ -39,14 +41,9 @@ public class ItemBase : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Missile"))
         {
-            ItemEffects();
             DisplayItemText();
+            ItemEffects();
         }
-    }
-
-    public virtual void ItemEffects()
-    {
-        
     }
 
     private void DisplayItemText()
@@ -76,5 +73,19 @@ public class ItemBase : MonoBehaviour
         }
 
         Destroy(effectText, 1.5f);
+    }
+
+    public virtual void ItemEffects()
+    {
+        //エフェクトとSEを発生
+        effect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
+        AudioSource.PlayClipAtPoint(getSound, Camera.main.transform.position, 0.4f);
+    }
+
+    public void DestroyItem()
+    {
+        //アイテムとエフェクトを画面から消す
+        Destroy(this.gameObject);
+        Destroy(effect, 2.0f);
     }
 }

@@ -2992,6 +2992,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: StopGoMissile
       objectReference: {fileID: 0}
+    - target: {fileID: 321209074900820437, guid: 6d578a94449aeaf47927b8bc61aa5fdd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 321209074900820435, guid: 6d578a94449aeaf47927b8bc61aa5fdd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4833,6 +4838,11 @@ PrefabInstance:
       propertyPath: itemPrefab.Array.data[4]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8032318160236448761, guid: cf0c78a8a961e2540a49883387b63b97,
+        type: 3}
+      propertyPath: m_TagString
+      value: EnemyFireMissileB
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf0c78a8a961e2540a49883387b63b97, type: 3}
 --- !u!224 &8085000817373450435
@@ -5102,6 +5112,11 @@ PrefabInstance:
       propertyPath: specialButton
       value: 
       objectReference: {fileID: 1883390981}
+    - target: {fileID: 8685305572122349700, guid: 5901f8866a0b82e4e9e54e9391083812,
+        type: 3}
+      propertyPath: isKeyboardOn
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5901f8866a0b82e4e9e54e9391083812, type: 3}
 --- !u!1001 &8702202421038685425

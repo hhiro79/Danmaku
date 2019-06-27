@@ -8,15 +8,30 @@ public class EnemyFireMissileB : MonoBehaviour
     public float misssileSpeed = -300;
     public float missileWaitTime = 5;
     private int timeCount = 0;
+    private float stopTimer;
 
     private Rotate rotate;
-
     private LookAt lookAt;
-
+    
     // Update is called once per frame
     void Update()
     {
-        timeCount += 1;
+        if (stopTimer > 0)
+        {
+            //タイマーを進める
+            stopTimer -= Time.deltaTime;
+
+            //タイマーが0未満になったら0で止める
+            if (stopTimer < 0)
+            {
+                stopTimer = 0;
+            }
+        }
+
+        if (stopTimer == 0)
+        {
+            timeCount += 1;
+        }
 
         //発射間隔を短く
         if(timeCount % missileWaitTime == 0){
@@ -52,5 +67,14 @@ public class EnemyFireMissileB : MonoBehaviour
                 timeCount = 0;
             }
         }        
+    }
+
+    /// <summary>
+    /// タイマーの時間を増加させる 
+    /// </summary>
+    /// <param name="amount"></param>
+    public void AddStopTimer(float amount)
+    {
+        stopTimer += amount;
     }
 }

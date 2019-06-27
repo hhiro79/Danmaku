@@ -2,30 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StopAttackItem : MonoBehaviour
+public class StopAttackItem : ItemBase
 {
     public GameObject[] targets;
+    public GameObject[] targetsB;
 
-    // Update is called once per frame
-    void Update()
+    public override void Update()
     {
+        base.Update();
+
         //EnemyFireMissileプレハブにタグを付けること
         targets = GameObject.FindGameObjectsWithTag("EnemyFireMissile");
+        targetsB = GameObject.FindGameObjectsWithTag("EnemyFireMissileB");
+
+        Debug.Log(targets.Length);
     }
 
-    void OnTriggerEnter(Collider col){
-        if(col.gameObject.tag == "Missile") {
-            Destroy(col.gameObject);
-            StopMissile();
+    public override void ItemEffects()
+    {
+        StopMissile();
+        base.DestroyItem();
+    }
+
+    public void StopMissile()
+    {
+        if(targets.Length > 0)
+        {
+            for (int i = 0; i < targets.Length; i++)
+            {
+                targets[i].GetComponent<EnemyFireMissile>().AddStopTimer(10.0f);
+            }
         }
-        
-        Destroy(gameObject, 1.0f);
-    }
-
-    public void StopMissile(){
-        for (int i = 0; i < targets.Length; i++) {
-            targets [i].GetComponent<EnemyFireMissile> ()
-                .AddStopTimer (10.0f);
+        if (targetsB.Length > 0)
+        {
+            for (int i = 0; i < targetsB.Length; i++)
+            {
+                targetsB[i].GetComponent<EnemyFireMissileB>().AddStopTimer(10.0f);
+            }
         }
     }
 }

@@ -107,4 +107,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectPrefab: {fileID: 100006, guid: 906ef3748a66347cfb2d72de10092732, type: 3}
   getSound: {fileID: 8300000, guid: 398b428933e30cc4fb1fd18329b036ed, type: 3}
+  effectTextPrefab: {fileID: 4487057673178612504, guid: 70a23a8c83ec3344dbf169143ff85a40,
+    type: 3}
+  moveSpeed: 5
+  itemType: 1
   reward: 1

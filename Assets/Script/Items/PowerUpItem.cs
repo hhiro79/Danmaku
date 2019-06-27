@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class PowerUpItem : ItemBase
 {
-    public GameObject effectPrefab;
-    public AudioClip getSound;
     private FireMissile fireMissilePod1;
     private FireMissile fireMissilePod2;
     private FireMissile mainPod;
     public float powerUpCount = 15.0f;
 
-    // Start is called before the first frame update
     public override void SetUp()
     {
         fireMissilePod1 = GameObject.Find ("FireMissileB").GetComponent<FireMissile>();
@@ -35,11 +32,7 @@ public class PowerUpItem : ItemBase
 
     public override void ItemEffects()
     {
-        //エフェクト発生
-        GameObject effect = Instantiate(effectPrefab, transform.position, Quaternion.identity);
-
-        //効果音
-        AudioSource.PlayClipAtPoint(getSound, Camera.main.transform.position, 0.4f);
+        base.ItemEffects();
 
         //アイテムを非アクティブに
         //ここでアイテムを破壊するとメモリ上から消えてNomalメソッドが実行されなくなる
@@ -51,6 +44,7 @@ public class PowerUpItem : ItemBase
 
         Invoke("Normal", powerUpCount);
 
+        //エフェクトを消す
         Destroy(effect, 2.0f);
     }
 

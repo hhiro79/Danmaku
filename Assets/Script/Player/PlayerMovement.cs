@@ -8,24 +8,33 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 0.2f;
     private Vector3 pos;
 
-    // Update is called once per frame
+    private float moveH;
+    private float moveV;
+
+    [SerializeField, Header("デバッグ用。onならキーボード操作可能")]
+    public bool isKeyboardOn;
+
     void Update()
     {
-        float moveH = -CrossPlatformInputManager.GetAxis ("Horizontal") * moveSpeed;
-        float moveV = -CrossPlatformInputManager.GetAxis ("Vertical") * moveSpeed;
+        if (isKeyboardOn)
+        {
 
-        //float moveX = -CrossPlatformInputManager.GetAxis("Mouse X") * moveSpeed * 2.5f;
-        //float moveY = -CrossPlatformInputManager.GetAxis("Mouse Y") * moveSpeed * 2.5f;
+            moveH = -Input.GetAxis("Horizontal") * moveSpeed * 2.5f;
+            moveV = -Input.GetAxis("Vertical") * moveSpeed * 2.5f;
+        }
+        else
+        {
+            moveH = -CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed;
+            moveV = -CrossPlatformInputManager.GetAxis("Vertical") * moveSpeed;
+        }
 
-        transform.Translate (moveH, 0.0f, moveV);
-        //transform.Translate (moveX, 0.0f, moveY);
+        transform.Translate(moveH, 0.0f, moveV);
 
         Clamp();
         Debug.Log(moveH);
         //Debug.Log(moveX);
     }
-
-
+    
     /// <summary>
     /// プレーヤーの移動範囲を制限する
     /// </summary>

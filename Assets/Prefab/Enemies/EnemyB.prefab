@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 8032318160236448766}
   m_Layer: 0
   m_Name: EnemyFireMissileB
-  m_TagString: Untagged
+  m_TagString: EnemyFireMissileB
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205,3 +205,4 @@ MonoBehaviour:
   - {fileID: 446513982964625318, guid: c6e6e876e96fe574c956c80807eef5b9, type: 3}
   nextSceneNumber: 0
   clearSound: {fileID: 0}
+  isSecretBonusEnemy: 0

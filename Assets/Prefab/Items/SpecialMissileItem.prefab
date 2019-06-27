@@ -108,4 +108,8 @@ MonoBehaviour:
   effectPrefab: {fileID: 7183235517943459273, guid: 35081bee809ab8f48943e089b8817962,
     type: 3}
   getSound: {fileID: 8300000, guid: 4b4e1730a8c553246a02ae904c9da32a, type: 3}
+  effectTextPrefab: {fileID: 4487057673178612504, guid: 70a23a8c83ec3344dbf169143ff85a40,
+    type: 3}
+  moveSpeed: 5
+  itemType: 5
   addSpecialMissile: 3

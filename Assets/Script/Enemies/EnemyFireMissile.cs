@@ -7,7 +7,7 @@ public class EnemyFireMissile : MonoBehaviour
     public GameObject enemyMissilePrefab;
     public float missileSpeed;
     private int timeCount = 0;
-    public float stopTimer = 10;
+    public float stopTimer;
 
     // Update is called once per frame
     void Update()

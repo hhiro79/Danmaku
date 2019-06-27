@@ -71,8 +71,7 @@ public class FireMissile : MonoBehaviour
         
         timeCount += 1;
 
-        if (CrossPlatformInputManager.GetButton("Fire1")) { 
-            //(Input.GetButton("Fire1") ||
+        if (CrossPlatformInputManager.GetButton("Fire1") || Input.GetButton("Fire1")) { 
             
             //弾切れ発生
             if (shotPower <= 0) {
