@@ -111,10 +111,12 @@ MonoBehaviour:
   enemyHP: 1
   scoreValue: 50
   itemPrefab:
-  - {fileID: 8032318159953766786, guid: cf0c78a8a961e2540a49883387b63b97, type: 3}
+  - {fileID: 2866662044679366341, guid: f4acbc26738366146990f86dacd92b8d, type: 3}
   - {fileID: 677881262643251182, guid: c25063fdc04a8af4f8a8ca53b32362f2, type: 3}
   - {fileID: 407066357537681203, guid: f16dbeb07abaa3b41b84239a319b17b5, type: 3}
   - {fileID: 4838693214562839367, guid: 0e051229eb5b2ee48865d7567b3e0d77, type: 3}
+  - {fileID: 4556104825267288887, guid: 49aee8d887bcc864d9f31e3594721f93, type: 3}
+  - {fileID: 446513982964625318, guid: c6e6e876e96fe574c956c80807eef5b9, type: 3}
 --- !u!54 &7840464548401308411
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -108,13 +108,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectPrefab: {fileID: 100004, guid: 6836f5eaa96f845c4ac0909f84272556, type: 3}
   destroySound: {fileID: 8300000, guid: c5c23d05a86b8da4ba3c17bed2bb59fa, type: 3}
-  enemyHP: 1
-  scoreValue: 50
+  enemyHP: 3
+  scoreValue: 100
   itemPrefab:
-  - {fileID: 8032318159953766786, guid: cf0c78a8a961e2540a49883387b63b97, type: 3}
+  - {fileID: 4255737770814739335, guid: fbcb435567d212a4eb1c7ee669ee29aa, type: 3}
   - {fileID: 677881262643251182, guid: c25063fdc04a8af4f8a8ca53b32362f2, type: 3}
   - {fileID: 407066357537681203, guid: f16dbeb07abaa3b41b84239a319b17b5, type: 3}
-  - {fileID: 4838693214562839367, guid: 0e051229eb5b2ee48865d7567b3e0d77, type: 3}
+  - {fileID: 2195037623569441460, guid: e383d4a1bd3777841b9a89fddaa9bd3f, type: 3}
+  - {fileID: 8032318159953766786, guid: cf0c78a8a961e2540a49883387b63b97, type: 3}
+  - {fileID: 7797072667844730908, guid: c6e85ff03c4606a4ba8df30134c011a1, type: 3}
 --- !u!54 &7376631329037042571
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -107,11 +107,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectPrefab: {fileID: 100004, guid: 6836f5eaa96f845c4ac0909f84272556, type: 3}
   destroySound: {fileID: 8300000, guid: f834bdb5b77d66d429a15b702b98d123, type: 3}
-  enemyHP: 1
-  scoreValue: 50
+  enemyHP: 3
+  scoreValue: 100
   itemPrefab: []
   nextSceneNumber: 0
   clearSound: {fileID: 0}
+  isSecretBonusEnemy: 0
 --- !u!114 &2724863746465551628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,3 +126,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDistance: 9
+  changePos: 15

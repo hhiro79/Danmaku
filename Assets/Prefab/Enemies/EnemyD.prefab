@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveXDistance: 0
-  moveZDistance: 2
+  moveZDistance: 4.2
 --- !u!114 &2866662044679366339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,9 +125,12 @@ MonoBehaviour:
   enemyHP: 2
   scoreValue: 100
   itemPrefab:
-  - {fileID: 1441712220228303400, guid: a7720dd933343be418e1e8aade05764f, type: 3}
+  - {fileID: 6395512711715541229, guid: d5b7a61406fa21d42a8aeac8715572b9, type: 3}
   - {fileID: 677881262643251182, guid: c25063fdc04a8af4f8a8ca53b32362f2, type: 3}
+  - {fileID: 446513982964625318, guid: c6e6e876e96fe574c956c80807eef5b9, type: 3}
+  - {fileID: 4556104825267288887, guid: 49aee8d887bcc864d9f31e3594721f93, type: 3}
   - {fileID: 2195037623569441460, guid: e383d4a1bd3777841b9a89fddaa9bd3f, type: 3}
+  - {fileID: 407066357537681203, guid: f16dbeb07abaa3b41b84239a319b17b5, type: 3}
 --- !u!54 &2866662044679366340
 Rigidbody:
   m_ObjectHideFlags: 0

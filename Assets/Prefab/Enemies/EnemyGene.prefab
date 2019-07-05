@@ -46,6 +46,11 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 1441712220228303400, guid: a7720dd933343be418e1e8aade05764f, type: 3}
   - {fileID: 2866662044679366341, guid: f4acbc26738366146990f86dacd92b8d, type: 3}
+  - {fileID: 7840464548401308354, guid: 25c15fa508bafcd429a9c9404fd4ccfd, type: 3}
+  - {fileID: 7376631329037042610, guid: 104b3dd6f5f646c4dbe66ddd2b1d377f, type: 3}
+  - {fileID: 3652219270909025553, guid: ab53449388269d446bf73c059de4e566, type: 3}
+  - {fileID: 1693321781977614367, guid: 9e50071bb967fc9408ea6e79d5515883, type: 3}
+  - {fileID: 5960950225325427553, guid: 37d3a83c379c34a4296a68ba2d48d4dd, type: 3}
   geneValues: {x: 20, y: 0, z: 19}
   geneCounts: 5
   startWait: 1

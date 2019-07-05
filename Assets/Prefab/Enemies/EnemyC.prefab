@@ -129,6 +129,8 @@ MonoBehaviour:
   - {fileID: 677881262643251182, guid: c25063fdc04a8af4f8a8ca53b32362f2, type: 3}
   - {fileID: 407066357537681203, guid: f16dbeb07abaa3b41b84239a319b17b5, type: 3}
   - {fileID: 4838693214562839367, guid: 0e051229eb5b2ee48865d7567b3e0d77, type: 3}
+  - {fileID: 446513982964625318, guid: c6e6e876e96fe574c956c80807eef5b9, type: 3}
+  - {fileID: 4556104825267288887, guid: 49aee8d887bcc864d9f31e3594721f93, type: 3}
 --- !u!54 &1441712220228303377
 Rigidbody:
   m_ObjectHideFlags: 0

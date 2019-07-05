@@ -11,6 +11,7 @@ public class StageNorma : MonoBehaviour
     private int destroyEnemy;
     public float normaTime;
     private float currentTime;
+    private bool isClear;
 
     [SerializeField]
     public Text clearNormaTxt;
@@ -35,12 +36,15 @@ public class StageNorma : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(StageManager.stageNum == 2 || StageManager.stageNum == 4){
+        if(!isClear && StageManager.stageNum == 2 || StageManager.stageNum == 4){
             currentTime -= Time.deltaTime;
             currentNormaTxt.text = "あと" + currentTime.ToString("f0") + "秒";
+
             if(currentTime <= 0 && StageManager.stageNum == 2){
-                 DisplayResultText();
+                currentNormaTxt.text = " ";
+                DisplayResultText();
                 StartCoroutine(NextScene());
+                isClear = true;
             }
             if(currentTime <= 0 && StageManager.stageNum == 4){
                 clearNormaTxt.text = "ボスを倒せ！";
@@ -50,6 +54,9 @@ public class StageNorma : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 各ステージのクリア条件を設定
+    /// </summary>
     private void InitNorma(){
         Debug.Log(StageManager.stageNum);
         switch(StageManager.stageNum){
@@ -77,16 +84,18 @@ public class StageNorma : MonoBehaviour
     }
 
     public void AddDestroyCount(){
-        if(destroyEnemy <= enemyNorma){
-            destroyEnemy++;            
+        if (!isBonus) { 
+            if (destroyEnemy <= enemyNorma)
+            {
+                destroyEnemy++;
 
-            if(StageManager.stageNum == 1 || StageManager.stageNum == 3){
-                currentNormaTxt.text = "あと" +
-                    (enemyNorma - destroyEnemy) + "体";
+                if (StageManager.stageNum == 1 || StageManager.stageNum == 3)
+                {
+                    currentNormaTxt.text = "あと" + (enemyNorma - destroyEnemy) + "体";
 
-                if(destroyEnemy >= enemyNorma){
-                    if (!isBonus)
+                    if (destroyEnemy >= enemyNorma)
                     {
+                        currentNormaTxt.text = " ";
                         DisplayResultText();
                         StartCoroutine(NextScene());
                     }
@@ -136,7 +145,7 @@ public class StageNorma : MonoBehaviour
             }
         }
         
-        currentNormaTxt.text = "";
+        currentNormaTxt.text = " ";
         isBonus = true;
     }
 

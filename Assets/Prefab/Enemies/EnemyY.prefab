@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDistance: 8.5
+  changePos: 4.4
 --- !u!114 &5508309199231487922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,3 +126,4 @@ MonoBehaviour:
   itemPrefab: []
   nextSceneNumber: 0
   clearSound: {fileID: 0}
+  isSecretBonusEnemy: 0

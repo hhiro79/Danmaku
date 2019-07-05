@@ -6,8 +6,8 @@ public class Backgound : MonoBehaviour
 {
     private Vector3 startPosition;
     public float border;
+    private float timer;
 
-    // Start is called before the first frame update
     void Start()
     {
         startPosition = transform.position;        
@@ -19,10 +19,12 @@ public class Backgound : MonoBehaviour
         Vector3 pos = transform.position;
         pos.z -= Time.deltaTime * 5;
         transform.position = new Vector3 (pos.x, pos.y, pos.z);
+        timer += Time.deltaTime;
 
         //zの値が境界線以下になったら初期値に戻す
-        if (pos.z <= border) {
+        if (timer >= border) {
             transform.position = startPosition;
+            timer = 0;
         }
     }
 }
