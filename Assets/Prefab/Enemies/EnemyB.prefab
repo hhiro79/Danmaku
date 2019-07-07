@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8032318159953766785}
   m_Layer: 0
   m_Name: EnemyB
-  m_TagString: EnemyB
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
   enemyMissilePrefab: {fileID: 5715906654592956466, guid: 101f31e3603fa314d9b7b73316562c01,
     type: 3}
   misssileSpeed: 300
-  missileWaitTime: 5
+  missileWaitTime: 20
 --- !u!114 &8032318160236448766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,10 +199,11 @@ MonoBehaviour:
   effectPrefab: {fileID: 7183235517943459273, guid: 35081bee809ab8f48943e089b8817962,
     type: 3}
   destroySound: {fileID: 8300000, guid: a38d3d46aceb78042ba392e718244ef2, type: 3}
-  enemyHP: 1
-  scoreValue: 50
+  enemyHP: 3
+  scoreValue: 300
   itemPrefab:
   - {fileID: 446513982964625318, guid: c6e6e876e96fe574c956c80807eef5b9, type: 3}
+  - {fileID: 4838693214562839367, guid: 0e051229eb5b2ee48865d7567b3e0d77, type: 3}
   nextSceneNumber: 0
   clearSound: {fileID: 0}
   isSecretBonusEnemy: 1

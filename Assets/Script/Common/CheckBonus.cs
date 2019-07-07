@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 ///  クリアしたときのボーナス判定用クラス
-///  全ステージクリアしたときに呼ばれます
+///  各ステージクリアしたときに呼ばれます
 /// </summary>
 public class CheckBonus : MonoBehaviour
 {
@@ -30,6 +30,10 @@ public class CheckBonus : MonoBehaviour
         if(timer <= clearLevel_2){
             //ボーナス設定値2の範囲内なら
             bonusLank = 2;
+        }
+        else
+        {
+            bonusLank = 0;
         }
     }
 

@@ -85,8 +85,7 @@ public class EnemyHealth : MonoBehaviour
 
                 if (isSecretBonusEnemy)
                 {
-                    GameObject.FindGameObjectWithTag("StageManager").
-                        GetComponent<CheckBonus>().AddSecretEnemyBonus();
+                    GameObject.FindGameObjectWithTag("StageManager").GetComponent<CheckBonus>().AddSecretEnemyBonus();
                 }
 
                 //StageNormaのAddDestroyCount呼び出し

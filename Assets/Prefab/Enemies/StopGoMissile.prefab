@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 321209074900820439}
   - component: {fileID: 321209074900820438}
   - component: {fileID: 9034164679096983780}
+  - component: {fileID: 3310153311278721275}
   m_Layer: 0
   m_Name: StopGoMissile
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,8 +121,33 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321209074900820437}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3310153311278721275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321209074900820437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc3bc016a893ae44bcc93e2894c618d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectPrefab: {fileID: 7183235517943459273, guid: 35081bee809ab8f48943e089b8817962,
+    type: 3}
+  destroySound: {fileID: 8300000, guid: a38d3d46aceb78042ba392e718244ef2, type: 3}
+  enemyHP: 1
+  scoreValue: 50
+  itemPrefab:
+  - {fileID: 8032318159953766786, guid: cf0c78a8a961e2540a49883387b63b97, type: 3}
+  - {fileID: 6395512711715541229, guid: d5b7a61406fa21d42a8aeac8715572b9, type: 3}
+  - {fileID: 321209074900820437}
+  - {fileID: 407066357537681203, guid: f16dbeb07abaa3b41b84239a319b17b5, type: 3}
+  nextSceneNumber: 0
+  clearSound: {fileID: 0}
+  isSecretBonusEnemy: 0

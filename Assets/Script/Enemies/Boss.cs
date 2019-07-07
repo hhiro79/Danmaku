@@ -36,16 +36,6 @@ public class Boss : EnemyBase {
         //この1行がないとスライダーバーの目盛りが変化しない
         slider.value = currentHP;
 
-        if (currentHP <= Mathf.FloorToInt(enemyHP / 50.0f)) {
-            // 残りHPが50%以下になったら敵を生成する
-            EnemyGene2 e2 = GameObject.Find("EnemyGene2").GetComponent<EnemyGene2>();
-            e2.CreateEnemy();
-            if (!e2) {
-                return;
-            }
-            Debug.Log("敵生成");
-        }
-
         if(currentHP <= 0){
             //親オブジェクトにBossというTagがついていたならばステージクリア
             if (this.gameObject.transform.root.CompareTag("Boss")) {

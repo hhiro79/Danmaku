@@ -466,7 +466,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "SP\u56DE\u6570"
+  m_Text: SP
 --- !u!222 &210024121
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -505,7 +505,7 @@ Transform:
   - {fileID: 421159515}
   - {fileID: 1778834272}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &259813044
 GameObject:
@@ -1517,8 +1517,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1141054906}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.155297, y: -0.3, z: -0.25228292}
-  m_LocalScale: {x: 31.479532, y: 0.0004906932, z: 0.47451335}
+  m_LocalPosition: {x: -9.24, y: -0.3, z: -0.2602}
+  m_LocalScale: {x: 33.078815, y: 0.0004906932, z: 0.4903356}
   m_Children: []
   m_Father: {fileID: 816093294}
   m_RootOrder: 4
@@ -1739,8 +1739,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1289061584}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.155297, y: -0.2600674, z: 0.2171}
-  m_LocalScale: {x: 31.47953, y: 0.0004906932, z: 0.47}
+  m_LocalPosition: {x: -9.24, y: -0.2600674, z: 0.2094}
+  m_LocalScale: {x: 33.07551, y: 0.0004906932, z: 0.4752621}
   m_Children: []
   m_Father: {fileID: 816093294}
   m_RootOrder: 5
@@ -2415,36 +2415,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1 &2108934749
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2108934750}
-  m_Layer: 0
-  m_Name: Enemies
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2108934750
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2108934749}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.19999999, y: 0, z: -25}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &52269937116511760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3210,41 +3180,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageManager
       objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: clearNormaTxt
-      value: 
-      objectReference: {fileID: 982589369}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: currentNormaTxt
-      value: 
-      objectReference: {fileID: 1786816628}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: enemyNorma
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: bonusValue_1
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: bonusValue_2
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: normaTime
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: enemyBoss
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5275266706400743302, guid: ec369dcc27f09cb4e8a71ef246f951ca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3299,6 +3234,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275266706400743297, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: debugSwitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: clearNormaTxt
+      value: 
+      objectReference: {fileID: 982589369}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: currentNormaTxt
+      value: 
+      objectReference: {fileID: 1786816628}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: enemyNorma
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: bonusValue_1
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: bonusValue_2
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: normaTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: enemyBoss
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec369dcc27f09cb4e8a71ef246f951ca, type: 3}
@@ -3778,7 +3753,7 @@ PrefabInstance:
     - target: {fileID: 8685305572122349702, guid: 5901f8866a0b82e4e9e54e9391083812,
         type: 3}
       propertyPath: playerHP
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 661638554, guid: 5901f8866a0b82e4e9e54e9391083812, type: 3}
       propertyPath: specialButton

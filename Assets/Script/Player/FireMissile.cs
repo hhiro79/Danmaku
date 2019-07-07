@@ -19,7 +19,7 @@ public class FireMissile : MonoBehaviour
     private Slider powerSlider;
 
     //発射パワーの回復
-    const int RecoveryTime = 10;    //パワーが回復するまでの時間
+    const int RecoveryTime = 5;    //パワーが回復するまでの時間
     private int counter;    //発射パワー回復までの残り時間
 
     //発射パワーの表示

@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2246c50fe8e4194f9f9a6790053cbab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearLevel_1: 60
+  clearLevel_1: 40
   clearLevel_2: 30
   bonusLank: 0
   secretEnemyCount: 0
@@ -507,7 +507,7 @@ Transform:
   - {fileID: 1142818623}
   - {fileID: 605575575}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &259813044
 GameObject:
@@ -1594,8 +1594,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1141054906}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.155297, y: -0.3, z: -0.25228292}
-  m_LocalScale: {x: 31.479532, y: 0.0004906932, z: 0.47451335}
+  m_LocalPosition: {x: -9.33, y: -0.3, z: -0.2523}
+  m_LocalScale: {x: 33.396442, y: 0.0004906932, z: 0.4745029}
   m_Children: []
   m_Father: {fileID: 816093294}
   m_RootOrder: 4
@@ -1891,8 +1891,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1289061584}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.155297, y: -0.2600674, z: 0.2171}
-  m_LocalScale: {x: 31.47953, y: 0.0004906932, z: 0.47}
+  m_LocalPosition: {x: -9.33, y: -0.2600674, z: 0.2092}
+  m_LocalScale: {x: 33.07881, y: 0.0004906932, z: 0.48581383}
   m_Children: []
   m_Father: {fileID: 816093294}
   m_RootOrder: 5
@@ -2567,36 +2567,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1 &2108934749
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2108934750}
-  m_Layer: 0
-  m_Name: Enemies
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2108934750
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2108934749}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.19999999, y: 0, z: -25}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &52269937116511760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3940,7 +3910,7 @@ PrefabInstance:
     - target: {fileID: 8685305572122349702, guid: 5901f8866a0b82e4e9e54e9391083812,
         type: 3}
       propertyPath: playerHP
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 661638554, guid: 5901f8866a0b82e4e9e54e9391083812, type: 3}
       propertyPath: specialButton

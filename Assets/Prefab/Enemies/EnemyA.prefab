@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2196373471242152331}
   - component: {fileID: 2196373471242152328}
   - component: {fileID: 2196373471242152309}
-  - component: {fileID: 2196373471242152308}
+  - component: {fileID: 724522497}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pos: {x: 45, y: 45, z: 45}
---- !u!114 &2196373471242152308
+--- !u!114 &724522497
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,17 +116,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 2196373471242152334}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adc3bc016a893ae44bcc93e2894c618d, type: 3}
+  m_Script: {fileID: 11500000, guid: ac0b546f2eba86a47806d274f8441459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   effectPrefab: {fileID: 7183235517943459273, guid: 35081bee809ab8f48943e089b8817962,
     type: 3}
-  destroySound: {fileID: 8300000, guid: a38d3d46aceb78042ba392e718244ef2, type: 3}
-  enemyHP: 3
-  scoreValue: 300
+  destroySound: {fileID: 8300000, guid: 5b7180da2a1caa84295a449b968c9d26, type: 3}
+  enemyHP: 30
+  scoreValue: 3000
   itemPrefab: []
-  nextSceneNumber: 0
-  clearSound: {fileID: 0}
+  sn: {fileID: 0}
+  currentHP: 0
+  sm: {fileID: 0}
+  isSecretBonusEnemy: 0
+  enemyHPSlider: {fileID: 8524389682945847492, guid: 8d6d8adcbd87dda409ebe7c47626fbfb,
+    type: 3}
+  clearSound: {fileID: 8300000, guid: 949c140a18189cd41b1e62fc06b6ff5a, type: 3}
 --- !u!1 &2196373471248617486
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,11 +143,11 @@ GameObject:
   - component: {fileID: 2196373471248617481}
   m_Layer: 0
   m_Name: EnemyA
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2196373471248617481
 Transform:
   m_ObjectHideFlags: 0
