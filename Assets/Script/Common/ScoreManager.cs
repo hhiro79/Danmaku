@@ -27,9 +27,9 @@ public class ScoreManager : MonoBehaviour
         } else {
             //Textコンポーネントにアクセスして所得する
             scoreLabel = GameObject.Find("ScoreLabel").GetComponent<Text>();
-            scoreLabel.text = "Score" + score;
+            scoreLabel.text = "Score : " + score;
             highScoreLabel = GameObject.Find("HighScoreLabel").GetComponent<Text>();
-            highScoreLabel.text = "HighScore" + highScore;
+            highScoreLabel.text = "HighScore : " + highScore;
         }
     }
     
@@ -46,8 +46,8 @@ public class ScoreManager : MonoBehaviour
             highScore = score;
         }
         
-        highScoreLabel.text = "HighScore" + highScore;
-        scoreLabel.text = "Score " + score;
+        highScoreLabel.text = "HighScore : " + highScore;
+        scoreLabel.text = "Score : " + score;
     }
 
     /// <summary>

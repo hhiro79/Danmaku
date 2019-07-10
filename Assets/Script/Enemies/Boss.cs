@@ -58,7 +58,7 @@ public class Boss : EnemyBase {
     /// ゲームクリアによるシーン遷移処理
     /// </summary>
     private void GoNextStage(){
-        Debug.Log("通過");
+        //Debug.Log("通過");
         SceneManager.LoadScene("Title");
     }
 

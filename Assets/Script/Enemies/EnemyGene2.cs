@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class EnemyGene2 : MonoBehaviour
 {
+    [SerializeField, Header("生成する敵")]
     public GameObject enemyPrefab;
+    [SerializeField, Header("敵の生成数")]
     public int geneAmount;
 
-    [Range(0, 15f)]
+    [SerializeField, Header("敵の生成間隔"), Range(0, 15f)]
     public float waitTime;
 
     // Start is called before the first frame update

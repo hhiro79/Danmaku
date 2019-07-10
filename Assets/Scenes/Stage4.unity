@@ -499,6 +499,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 210024118}
   m_CullTransparentMesh: 0
+--- !u!1 &226047004 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6809303870871984714, guid: 1959f72941d370f4fbb0eded51391491,
+    type: 3}
+  m_PrefabInstance: {fileID: 702232513}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &226047006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226047004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccc17fda1eeae7b48bbc16dc97669f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 8032318159953766786, guid: cf0c78a8a961e2540a49883387b63b97,
+    type: 3}
+  geneAmount: 3
+  waitTime: 5
 --- !u!1 &259813044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,7 +1079,7 @@ PrefabInstance:
     - target: {fileID: 6809303870871984714, guid: 1959f72941d370f4fbb0eded51391491,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6809303870871984712, guid: 1959f72941d370f4fbb0eded51391491,
         type: 3}
@@ -3183,8 +3205,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -22.199951}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 106.82, y: -22.86}
+  m_SizeDelta: {x: 213.64, y: 31.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &1781661005559972602
 RectTransform:
@@ -3820,41 +3842,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageManager
       objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: clearNormaTxt
-      value: 
-      objectReference: {fileID: 982589369}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: currentNormaTxt
-      value: 
-      objectReference: {fileID: 1786816628}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: enemyNorma
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: bonusValue_1
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: bonusValue_2
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: normaTime
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: enemyBoss
-      value: 
-      objectReference: {fileID: 1636180671}
     - target: {fileID: 5275266706400743302, guid: ec369dcc27f09cb4e8a71ef246f951ca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3920,6 +3907,41 @@ PrefabInstance:
       propertyPath: debugStageNum
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: clearNormaTxt
+      value: 
+      objectReference: {fileID: 982589369}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: currentNormaTxt
+      value: 
+      objectReference: {fileID: 1786816628}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: enemyNorma
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: bonusValue_1
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: bonusValue_2
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: normaTime
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: enemyBoss
+      value: 
+      objectReference: {fileID: 1636180671}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec369dcc27f09cb4e8a71ef246f951ca, type: 3}
 --- !u!222 &6148289172792233593
@@ -4562,7 +4584,7 @@ PrefabInstance:
     - target: {fileID: 8685305572122349702, guid: 5901f8866a0b82e4e9e54e9391083812,
         type: 3}
       propertyPath: playerHP
-      value: 5000
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 661638554, guid: 5901f8866a0b82e4e9e54e9391083812, type: 3}
       propertyPath: specialButton

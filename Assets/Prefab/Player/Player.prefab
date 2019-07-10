@@ -64,9 +64,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 515780f2f46ecaf46acaac9678d79246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missilePrefab: {fileID: 5703605308788485690, guid: a3b38bb0c86c2814688b46ba4c5f7a4f,
+  missilePrefab: {fileID: 8431464172845030714, guid: a3b38bb0c86c2814688b46ba4c5f7a4f,
     type: 3}
-  missileSpeed: 0
+  missileSpeed: 500
   fireSound: {fileID: 8300000, guid: 4fe85c25a378a0647b0108fba3801877, type: 3}
   waitCount: 5
 --- !u!1 &8685305572249718393
@@ -210,6 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
+  isKeyboardOn: 1
 --- !u!114 &8685305572122349702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,14 +226,13 @@ MonoBehaviour:
   effectPrefab: {fileID: 100006, guid: 44dd4fdbb6f10429a844c51183a4c84e, type: 3}
   damageSound: {fileID: 8300000, guid: fa92d29a37e02fa48aa6e672376ce32e, type: 3}
   destroySound: {fileID: 8300000, guid: 5b7180da2a1caa84295a449b968c9d26, type: 3}
-  playerHP: 100
+  playerHP: 20
   playerIcons:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  isMuteki: 0
   meshRenderer: {fileID: 8685305572247773303}
   playerState: 0
 --- !u!114 &661638554

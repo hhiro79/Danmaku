@@ -31,40 +31,50 @@ public class EnemyFireMissileB : MonoBehaviour
         if (stopTimer == 0)
         {
             timeCount += 1;
-        }
 
-        //発射間隔を短く
-        if(timeCount % missileWaitTime == 0){
-            GameObject enemyMissile = Instantiate (enemyMissilePrefab,
-                transform.position, Quaternion.identity) as GameObject;
-            Rigidbody enemyMissileRb = enemyMissile.GetComponent<Rigidbody> ();
-            enemyMissileRb.AddForce (transform.forward * misssileSpeed);
 
-            //10秒後に敵のミサイルを削除
-            Destroy(enemyMissile, 10.0f);
+            //発射間隔を短く
+            if (timeCount % missileWaitTime == 0)
+            {
+                GameObject enemyMissile = Instantiate(enemyMissilePrefab,
+                    transform.position, Quaternion.identity) as GameObject;
+                Rigidbody enemyMissileRb = enemyMissile.GetComponent<Rigidbody>();
+                enemyMissileRb.AddForce(transform.forward * misssileSpeed);
 
-            //timeCountが500になったとき、このオブジェクトにRotateスクリプトを付加
-            if(timeCount == 500){
-                if(!lookAt){
-                    lookAt = GetComponent<LookAt>();
-                    lookAt.enabled = false;
-                } else {
-                    lookAt.enabled = false;
+                //10秒後に敵のミサイルを削除
+                Destroy(enemyMissile, 10.0f);
+
+                //timeCountが300になったとき、このオブジェクトにRotateスクリプトを付加
+                if (timeCount == 300)
+                {
+                    if (!lookAt)
+                    {
+                        lookAt = GetComponent<LookAt>();
+                        lookAt.enabled = false;
+                    }
+                    else
+                    {
+                        lookAt.enabled = false;
+                    }
+
+                    if (!rotate)
+                    {
+                        rotate = this.gameObject.AddComponent<Rotate>();
+                    }
+                    else
+                    {
+                        rotate.enabled = true;
+                    }
+                    rotate.pos = new Vector3(0, 90, 0);
                 }
 
-                if(!rotate){
-                    rotate = this.gameObject.AddComponent<Rotate> ();
-                } else {
-                    rotate.enabled = true;
+                //timeCountが600になったとき、戻す
+                if (timeCount >= 600)
+                {
+                    rotate.enabled = false;
+                    lookAt.enabled = true;
+                    timeCount = 0;
                 }
-                rotate.pos = new Vector3(0, 90, 0);
-            }
-
-            //timeCountが1000になったとき、戻す
-            if(timeCount >= 1000){
-                rotate.enabled = false;
-                lookAt.enabled = true;
-                timeCount = 0;
             }
         }        
     }

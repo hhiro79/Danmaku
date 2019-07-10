@@ -378,7 +378,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 4e-45, z: -70471810, w: 135.25206}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2776,8 +2776,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -22.199951}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 106.82, y: -22.86}
+  m_SizeDelta: {x: 213.64, y: 31.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &1781661005559972602
 RectTransform:
@@ -3332,41 +3332,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageManager
       objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: clearNormaTxt
-      value: 
-      objectReference: {fileID: 982589369}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: currentNormaTxt
-      value: 
-      objectReference: {fileID: 1786816628}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: enemyNorma
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: bonusValue_1
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: bonusValue_2
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: normaTime
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: enemyBoss
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5275266706400743302, guid: ec369dcc27f09cb4e8a71ef246f951ca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3431,6 +3396,41 @@ PrefabInstance:
         type: 3}
       propertyPath: debugStageNum
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: clearNormaTxt
+      value: 
+      objectReference: {fileID: 982589369}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: currentNormaTxt
+      value: 
+      objectReference: {fileID: 1786816628}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: enemyNorma
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: bonusValue_1
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: bonusValue_2
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: normaTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
+        type: 3}
+      propertyPath: enemyBoss
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec369dcc27f09cb4e8a71ef246f951ca, type: 3}
@@ -3907,20 +3907,10 @@ PrefabInstance:
       propertyPath: playerIcons.Array.data[4]
       value: 
       objectReference: {fileID: 3253799105877931044}
-    - target: {fileID: 8685305572122349702, guid: 5901f8866a0b82e4e9e54e9391083812,
-        type: 3}
-      propertyPath: playerHP
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 661638554, guid: 5901f8866a0b82e4e9e54e9391083812, type: 3}
       propertyPath: specialButton
       value: 
       objectReference: {fileID: 1883390981}
-    - target: {fileID: 8685305572122349700, guid: 5901f8866a0b82e4e9e54e9391083812,
-        type: 3}
-      propertyPath: isKeyboardOn
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5901f8866a0b82e4e9e54e9391083812, type: 3}
 --- !u!1001 &8702202421038685425

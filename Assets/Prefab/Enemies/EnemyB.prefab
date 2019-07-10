@@ -79,7 +79,7 @@ MonoBehaviour:
   enemyMissilePrefab: {fileID: 5715906654592956466, guid: 101f31e3603fa314d9b7b73316562c01,
     type: 3}
   misssileSpeed: 300
-  missileWaitTime: 20
+  missileWaitTime: 15
 --- !u!114 &8032318160236448766
 MonoBehaviour:
   m_ObjectHideFlags: 0

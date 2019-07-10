@@ -15,7 +15,7 @@ public class StopAttackItem : ItemBase
         targets = GameObject.FindGameObjectsWithTag("EnemyFireMissile");
         targetsB = GameObject.FindGameObjectsWithTag("EnemyFireMissileB");
 
-        Debug.Log(targets.Length);
+        //Debug.Log(targets.Length);
     }
 
     public override void ItemEffects()

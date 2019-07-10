@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(moveH, 0.0f, moveV);
 
         Clamp();
-        Debug.Log(moveH);
+        //Debug.Log(moveH);
         //Debug.Log(moveX);
     }
     
