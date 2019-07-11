@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5275266706400743297}
   - component: {fileID: 5275266706400743303}
   - component: {fileID: 2522995650940862330}
+  - component: {fileID: 24700150}
+  - component: {fileID: 4570851854087928060}
   m_Layer: 0
   m_Name: StageManager
   m_TagString: StageManager
@@ -45,6 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b40e6f30d9ef6bb45bedfcba4264556e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugSwitch: 0
+  debugStageNum: 1
 --- !u!114 &5275266706400743303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,13 +61,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b424122587075a42a371e7a27bf6984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyNorma: 10
+  enemyNorma: 20
   normaTime: 0
   clearNormaTxt: {fileID: 0}
   currentNormaTxt: {fileID: 0}
   stageManager: {fileID: 5275266706400743297}
-  enemyHPSlider: {fileID: 6842663983619900917, guid: 8d6d8adcbd87dda409ebe7c47626fbfb,
-    type: 3}
+  bonusValue_1: 500
+  bonusValue_2: 1000
+  enemyBoss: {fileID: 0}
 --- !u!114 &2522995650940862330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,5 +79,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2f2dd6a63a342b4bb18b6dcacf06546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &24700150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5275266706400743296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2246c50fe8e4194f9f9a6790053cbab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clearLevel_1: 40
+  clearLevel_2: 20
+  bonusLank: 0
+  secretEnemyCount: 0
+--- !u!114 &4570851854087928060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5275266706400743296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1714d17ddaab04489c7e0a03aa0d88b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

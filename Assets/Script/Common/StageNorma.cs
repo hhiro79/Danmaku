@@ -36,7 +36,7 @@ public class StageNorma : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isClear && StageManager.stageNum == 2 || StageManager.stageNum == 4){
+        if((!isClear && StageManager.stageNum == 2) || StageManager.stageNum == 4){
             currentTime -= Time.deltaTime;
             currentNormaTxt.text = "あと" + currentTime.ToString("f0") + "秒";
 

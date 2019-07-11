@@ -20,6 +20,11 @@ public class EnemyMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Mathf.Approximately(Time.timeScale, 0f))
+        {
+            return;
+        }
+
         timer += Time.deltaTime;
 
         if (moveXDistance == 0){

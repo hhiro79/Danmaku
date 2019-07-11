@@ -19,6 +19,11 @@ public class EnemyStarMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Mathf.Approximately(Time.timeScale, 0f))
+        {
+            return;
+        }
+
         timeCount += Time.deltaTime;
 
         //もしもタイムカウントが指定時間を経過したら

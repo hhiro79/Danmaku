@@ -20,6 +20,11 @@ public class EnemyZMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Mathf.Approximately(Time.timeScale, 0f))
+        {
+            return;
+        }
+
         transform.Translate(moveDistance * 
             Time.deltaTime * num, 0, -moveDistance * Time.deltaTime,
             Space.World);

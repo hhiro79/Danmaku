@@ -186,28 +186,6 @@ Transform:
   m_Father: {fileID: 9089213070647751166}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &24700149 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5275266706400743296, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-    type: 3}
-  m_PrefabInstance: {fileID: 5275266706556444762}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &24700150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24700149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2246c50fe8e4194f9f9a6790053cbab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clearLevel_1: 40
-  clearLevel_2: 20
-  bonusLank: 0
-  secretEnemyCount: 0
 --- !u!1001 &78490384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -301,6 +279,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22400000, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 9529ecc3d479da5499993355e6c2cb4f, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1277,9 +1263,9 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: 1f16052dfd5f6f54e94e97ecedd4c86b, type: 3}
+    m_FontSize: 25
+    m_FontStyle: 2
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
@@ -2096,9 +2082,9 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: 1f16052dfd5f6f54e94e97ecedd4c86b, type: 3}
+    m_FontSize: 25
+    m_FontStyle: 2
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
@@ -3235,16 +3221,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743297, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: debugSwitch
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743297, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: debugStageNum
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
         type: 3}
       propertyPath: clearNormaTxt
@@ -3255,31 +3231,6 @@ PrefabInstance:
       propertyPath: currentNormaTxt
       value: 
       objectReference: {fileID: 1786816628}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: enemyNorma
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: bonusValue_1
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: bonusValue_2
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: normaTime
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5275266706400743303, guid: ec369dcc27f09cb4e8a71ef246f951ca,
-        type: 3}
-      propertyPath: enemyBoss
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec369dcc27f09cb4e8a71ef246f951ca, type: 3}
 --- !u!222 &6148289172792233593
@@ -3767,7 +3718,17 @@ PrefabInstance:
     - target: {fileID: 8685305572122349700, guid: 5901f8866a0b82e4e9e54e9391083812,
         type: 3}
       propertyPath: isKeyboardOn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8685305572122349700, guid: 5901f8866a0b82e4e9e54e9391083812,
+        type: 3}
+      propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8685305572122349700, guid: 5901f8866a0b82e4e9e54e9391083812,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5901f8866a0b82e4e9e54e9391083812, type: 3}

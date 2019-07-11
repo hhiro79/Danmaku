@@ -8,4 +8,12 @@ public class GameStart : MonoBehaviour
     public void OnGameStartButtonClicked(){
         SceneManager.LoadScene("Stage1");
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            SceneManager.LoadScene("Stage1");
+        }
+    }
 }

@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcc55c9ea5a40b94e9386bb048462a9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.2
+  moveSpeed: 0.5
   isKeyboardOn: 1
 --- !u!114 &8685305572122349702
 MonoBehaviour:

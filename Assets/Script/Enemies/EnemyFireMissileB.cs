@@ -16,6 +16,11 @@ public class EnemyFireMissileB : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Mathf.Approximately(Time.timeScale, 0f))
+        {
+            return;
+        }
+
         if (stopTimer > 0)
         {
             //タイマーを進める

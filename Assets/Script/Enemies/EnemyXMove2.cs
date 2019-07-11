@@ -12,6 +12,11 @@ public class EnemyXMove2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Mathf.Approximately(Time.timeScale, 0f))
+        {
+            return;
+        }
+
         pos = transform.position;
 
         if(pos.z < 5 && isReturn == false)        

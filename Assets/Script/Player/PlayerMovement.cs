@@ -16,11 +16,16 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (Mathf.Approximately(Time.timeScale, 0f))
+        {
+            return;
+        }
+
         if (isKeyboardOn)
         {
 
-            moveH = -Input.GetAxis("Horizontal") * moveSpeed * 2.5f;
-            moveV = -Input.GetAxis("Vertical") * moveSpeed * 2.5f;
+            moveH = -Input.GetAxis("Horizontal") * moveSpeed;
+            moveV = -Input.GetAxis("Vertical") * moveSpeed;
         }
         else
         {
